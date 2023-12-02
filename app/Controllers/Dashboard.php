@@ -2,10 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
 use CodeIgniter\Controller;
 
 class Dashboard extends Controller
 {
+    private $userModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+
     public function index()
     {
         // Check if user is logged in
@@ -13,6 +21,17 @@ class Dashboard extends Controller
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        return view('dashboard'); // Load the dashboard view
+        $session = session();
+        $model = new \App\Models\UserModel();
+
+        // Assuming you have the username stored in the session or request
+        $username = $session->get('username');
+
+        // Fetch user data
+        $userData = $model->where('username', $username)->first();
+
+        // Pass user data to the view
+        return view('dashboard', ['userData' => $userData]);
+
     }
 }

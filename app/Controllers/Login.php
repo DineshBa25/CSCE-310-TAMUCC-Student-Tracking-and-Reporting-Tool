@@ -3,9 +3,19 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\UserModel; // Import the UserModel
 
 class Login extends Controller
 {
+    // Declare a private property to hold the UserModel instance
+    private $userModel;
+
+    public function __construct()
+    {
+        // Initialize the UserModel instance in the constructor
+        $this->userModel = new UserModel();
+    }
+
     public function index()
     {
         return view('login');
@@ -14,49 +24,31 @@ class Login extends Controller
     public function authenticate()
     {
         $session = session();
-        $model = new \App\Models\UserModel();
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
 
-        // Temporary login validation without database
-        // Here, you can specify a hardcoded username and password
-        $hardcodedUsername = 'testuser';
-        $hardcodedPassword = 'testpass';
+        // Retrieve user data from the UserModel
+        $data = $this->userModel->where('username', $username)->first();
 
-        if ($username == $hardcodedUsername && $password == $hardcodedPassword) {
-            // If credentials match, set session data
-            $ses_data = [
-                'username' => $hardcodedUsername,
-                'isLoggedIn' => TRUE
-            ];
-            $session->set($ses_data);
-            return redirect()->to('/dashboard'); // Redirect to the dashboard
+        if ($data) {
+            $pass = $data['Passwords'];
+            $authenticatePassword = password_verify($password, $pass);
+            //log password
+            if ($authenticatePassword) {
+                $ses_data = [
+                    'username' => $data['Username'],
+                    'isLoggedIn' => TRUE
+                ];
+                $session->set($ses_data);
+                return redirect()->to('/dashboard');
+            } else {
+                $session->setFlashdata('msg', 'Wrong Password');
+                return redirect()->to('/login');
+            }
         } else {
-            // If credentials do not match, set error message
-            $session->setFlashdata('msg', 'Incorrect Username or Password');
-            return redirect()->to('/login'); // Redirect back to the login page
+            $session->setFlashdata('msg', 'Username does not exist');
+            return redirect()->to('/login');
         }
-
-//        $data = $model->where('username', $username)->first();
-//
-//        if ($data) {
-//            $pass = $data['password'];
-//            $authenticatePassword = password_verify($password, $pass);
-//            if ($authenticatePassword) {
-//                $ses_data = [
-//                    'username' => $data['username'],
-//                    'isLoggedIn' => TRUE
-//                ];
-//                $session->set($ses_data);
-//                return redirect()->to('/dashboard');
-//            } else {
-//                $session->setFlashdata('msg', 'Wrong Password');
-//                return redirect()->to('/login');
-//            }
-//        } else {
-//            $session->setFlashdata('msg', 'Username does not exist');
-//            return redirect()->to('/login');
-//        }
     }
 
     public function logout()
@@ -64,5 +56,4 @@ class Login extends Controller
         session()->destroy();
         return redirect()->to('/login');
     }
-
 }
