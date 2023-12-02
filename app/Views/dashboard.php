@@ -54,7 +54,7 @@
                         <img class="h-8 w-8 rounded-full" src="<?= base_url('/images/account-icon.png'); ?>" alt="">
                     </button>
                 </div>
-                <!-- Dropdown menu (Drawer) -->
+                <!-- Drawer -->
                 <div id="user-drawer" class="drawer">
                     <div class="bg-gray-800 h-full">
                         <div class="py-6 px-4 bg-gray-700 text-white">
@@ -62,6 +62,10 @@
                             <h2 class="text-2xl font-bold"><?= $userData['First_Name'] . ' ' . $userData['M_Initial'] . '. ' . $userData['Last_Name']; ?> </h2>
                             <!-- Get email address -->
                             <p class="text-gray-500"><?= $userData['Email']; ?></p>
+                        </div>
+                        <div class="bg-yellow-300 text-black">
+                            <!-- Get full name -->
+                            <h2 class="text-2xl text-center font-bold"><?= $userData['User_Type']?> </h2>
                         </div>
                         <div class="py-4 px-4">
                             <a href="<?= site_url('logout'); ?>" class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-100 focus:outline-none focus:bg-red-100 transition duration-150 ease-in-out">
@@ -79,11 +83,12 @@
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <!-- Replace with your content -->
         <div class="px-4 py-6 sm:px-0">
-            <div class="border-4 border-dashed border-gray-700 rounded-lg h-96 flex justify-center items-center">
-                <span class="text-gray-500">Welcome to the Dashboard</span>
+            <div class="border-4 border-dashed border-gray-700 rounded-lg h-96">
+                <h1 class="text-gray-300 p-5 text-5xl font-bold">Welcome, <?= $userData['First_Name']?></h1>
+                <hr class="border ml-6 mr-6 border-gray-600 border-2">
+
             </div>
         </div>
-        <!-- /End replace -->
     </div>
 </main>
 
