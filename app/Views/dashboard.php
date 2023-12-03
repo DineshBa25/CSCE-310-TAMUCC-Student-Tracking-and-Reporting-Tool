@@ -83,13 +83,94 @@
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <!-- Replace with your content -->
         <div class="px-4 py-6 sm:px-0">
-            <div class="border-4 border-dashed border-gray-700 rounded-lg h-96">
                 <h1 class="text-gray-300 p-5 text-5xl font-bold">Welcome, <?= $userData['First_Name']?></h1>
                 <hr class="border ml-6 mr-6 border-gray-600 border-2">
+                <?php if ($userData['User_Type'] == 'Administrator'): ?>
+                    <!-- Admin Dashboard Buttons -->
+                    <div class="space-y-6 p-6">
+                        <!-- User Authentication and Roles -->
+                        <div>
+                            <h2 class="text-lg font-semibold text-white mb-3">User Authentication and Roles</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    Add New Admin
+                                </button>
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Modify User Roles
+                                </button>
+                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View User List
+                                </button>
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    Remove User
+                                </button>
+                            </div>
+                        </div>
+                        <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
 
+                        <!-- Program Information Management -->
+                        <div>
+                            <h2 class="text-lg font-semibold text-white mb-3">Program Information Management</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                                <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                                    Add New Program
+                                </button>
+                                <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                                    Edit Program Details
+                                </button>
+                                <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
+                                    Generate Program Report
+                                </button>
+                                <button class="bg-red-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
+                                    Delete Program
+                                </button>
+                            </div>
+                        </div>
+                        <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
+
+                        <!-- Program Progress Tracking -->
+                        <div>
+                            <h2 class="text-lg font-semibold text-white mb-3">Program Progress Tracking</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                                <button class="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded">
+                                    Record Student Progress
+                                </button>
+                                <button class="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded">
+                                    Edit Student Progress
+                                </button>
+                                <button class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded">
+                                    View Student Progress
+                                </button>
+                                <button class="bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                                    Delete Progress Report
+                                </button>
+                            </div>
+                        </div>
+                        <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
+
+                        <!-- Event Management -->
+                        <div>
+                            <h2 class="text-lg font-semibold text-white mb-3">Event Management</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                                <button class="bg-rose-500 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded">
+                                    Create New Event
+                                </button>
+                                <button class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded">
+                                    Edit Event Details
+                                </button>
+                                <button class="bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded">
+                                    View Event Info
+                                </button>
+                                <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+                                    Delete Event
+                                </button>
+                            </div>
+                        </div>
+                        <!-- No divider after the last section -->
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
-    </div>
 </main>
 
 <script>
