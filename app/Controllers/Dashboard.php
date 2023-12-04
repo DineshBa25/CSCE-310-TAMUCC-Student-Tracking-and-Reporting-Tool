@@ -1,37 +1,24 @@
 <?php
+// File: app/Controllers/Dashboard.php
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
-use CodeIgniter\Controller;
-
-class Dashboard extends Controller
+class Dashboard extends BaseController
 {
-    private $userModel;
-
-    public function __construct()
-    {
-        $this->userModel = new UserModel();
-    }
-
     public function index()
     {
         // Check if user is logged in
+
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        $session = session();
-        $model = new \App\Models\UserModel();
+        // Access the $userData property from the BaseController
+        $userData = $this->userData;
 
-        // Assuming you have the username stored in the session or request
-        $username = $session->get('username');
+        // You can now use $userData in this controller
 
-        // Fetch user data
-        $userData = $model->where('username', $username)->first();
-
-        // Pass user data to the view
+        // Load the dashboard view
         return view('dashboard', ['userData' => $userData]);
-
     }
 }
