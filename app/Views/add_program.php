@@ -60,7 +60,7 @@
                 Back to Dashboard
             </button>
             <!-- button to view application status-->
-            <button type="button" onclick="window.location.href='<?= base_url('/index.php/application/status') ?>';" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
+            <button type="button" onclick="window.location.href='<?= base_url('/index.php/view_program') ?>';" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
                 View, Edit, or Delete Programs
             </button>
         </div>
