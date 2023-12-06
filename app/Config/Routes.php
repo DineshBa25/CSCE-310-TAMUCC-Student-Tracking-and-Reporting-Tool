@@ -16,4 +16,5 @@ $routes->post('/profile/deactivate', 'ProfileController::deactivateAccount');
 $routes->post('/profile/delete', 'ProfileController::permenantlyDeleteAccount');
 $routes->get('/register', 'Login::registerPage');
 $routes->post('/registration/process', 'Login::register');
+$routes->get('/progress_tracking', 'ProgressSearchController::mainProgressPage');
 
