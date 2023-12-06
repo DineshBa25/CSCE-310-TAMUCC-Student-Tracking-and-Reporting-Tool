@@ -56,18 +56,13 @@
                         <div>
                             <h2 class="text-lg font-semibold text-white mb-3">Program Information Management</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    Add New Program
-                                </button>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    Edit Program Details
-                                </button>
-                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                    Generate Program Report
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                    Delete Program
-                                </button>
+                                <a href="<?= site_url('/add_program'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Add a program
+                                </a>
+                                <a href="<?= site_url('/view_program'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View, Edit, or Delete Programs
+                                </a>
+
                             </div>
                         </div>
                         <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
@@ -137,18 +132,12 @@
                 <div>
                     <h2 class="text-lg font-semibold text-white mb-3">Application Information Management</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Submit Application
-                        </button>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Edit an Application
-                        </button>
-                        <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                            View your Application Statuses
-                        </button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                            Withdraw an Application
-                        </button>
+                        <a href="<?= site_url('/start_application'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Start an Application
+                        </a>
+                        <a href="<?= site_url('/view_application'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                            View, Edit and Delete Applications
+                        </a>
                     </div>
                 </div>
                 <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
