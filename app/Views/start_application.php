@@ -36,13 +36,13 @@
                         <label for="program" class="block text-white text-sm font-medium mb-2">What program do you intend to apply for?</label>
                         <!-- dropdown with all the programs listed-->
                         <select id="program" name="program" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
+                            <option value="" disabled selected>--Select a program--</option>
                             <!-- go through $programs and add each ones 'Name' as an option-->
                             <?php foreach ($programs as $program): ?>
                                 <option value="<?= esc($program['Program_Num']) ?>"><?= esc($program['Name']) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-
                     <!-- UIN (greyed out and disabled)-->
                     <div class="mb-7">
                         <label for="uin" class="block text-white text-sm font-medium mb-2">UIN</label>
