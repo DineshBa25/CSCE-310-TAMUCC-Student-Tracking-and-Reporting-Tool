@@ -42,10 +42,18 @@
                             Description
                         </th>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                            Activation Status
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                             Edit
                         </th>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                             Delete
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                            Generate Report
                         </th>
                     </tr>
                     </thead>
@@ -64,7 +72,23 @@
                                 <?= $program['Description'] ?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <a href="/edit_program/<?= $program['Program_Num'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
+                                <span class="relative inline-block px-3 py-1 font-semibold leading-tight">
+                                    <span aria-hidden class="absolute inset-0 <?= $program['IsActive'] === '1' ? 'bg-green-500' :  'bg-red-500' ?> rounded-full"></span>
+                                    <span class="relative text-white">
+                                        <?= $program['IsActive'] === '1' ? 'Active' :  'Deactivated'  ?>
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
+                                <form action="/program/<?= $program['IsActive'] ? 'deactivate' : 'activate' ?>/<?= $program['Program_Num'] ?>" method="post">
+                                    <?= csrf_field() ?>
+                                    <button type="submit" onclick="return confirm('Are you sure you want to <?= $program['IsActive'] ? 'DEACTIVATE' : 'ACTIVATE' ?> this program?');" class="text-<?= $program['IsActive'] ? 'red' : 'green' ?>-600 hover:text-<?= $program['IsActive'] ? 'red' : 'green' ?>-900">
+                                        <?= $program['IsActive'] ? 'Deactivate' : 'Activate' ?>
+                                    </button>
+                                </form>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
+                                <a href="/edit_program/<?= $program['Program_Num'] ?>" class="text-purple-600 hover:text-purple-900 mr-5">Edit</a>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                                 <form action="/program/delete/<?= $program['Program_Num'] ?>" method="post">
@@ -73,6 +97,9 @@
                                         Delete
                                     </button>
                                 </form>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
+                                <a href="/program_report/<?= $program['Program_Num'] ?>" class="text-purple-600 hover:text-purple-900 mr-5">View Report</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

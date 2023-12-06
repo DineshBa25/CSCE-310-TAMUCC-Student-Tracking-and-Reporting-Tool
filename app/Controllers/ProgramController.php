@@ -197,4 +197,66 @@ class ProgramController extends BaseController
         return redirect()->to('/view_program');
     }
 
+    public function deactivateProgram($programNum = null)
+    {
+        // Check if user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Check if a program number has been provided
+        if (!$programNum) {
+            session()->setFlashdata('error', 'No program selected for deactivation.');
+            return redirect()->to('/view_program'); // Redirect to the program listing page
+        }
+
+        // Get the database connection
+        $db = \Config\Database::connect();
+
+        // Deactivate the program in the database
+        $sql = "UPDATE Programs SET IsActive = 0 WHERE Program_Num = ?";
+        $db->query($sql, [$programNum]);
+
+        if ($db->affectedRows() > 0) {
+            session()->setFlashdata('success', 'Program deactivated successfully!');
+        } else {
+            session()->setFlashdata('error', 'Failed to deactivate program.');
+        }
+
+        return redirect()->to('/view_program');
+    }
+
+    public function activateProgram($programNum = null)
+    {
+        // Check if user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Check if a program number has been provided
+        if (!$programNum) {
+            session()->setFlashdata('error', 'No program selected for activation.');
+            return redirect()->to('/view_program'); // Redirect to the program listing page
+        }
+
+        // Get the database connection
+        $db = \Config\Database::connect();
+
+        // Activate the program in the database
+        $sql = "UPDATE Programs SET IsActive = 1 WHERE Program_Num = ?";
+        $db->query($sql, [$programNum]);
+
+        if ($db->affectedRows() > 0) {
+            session()->setFlashdata('success', 'Program activated successfully!');
+        } else {
+            session()->setFlashdata('error', 'Failed to activate program.');
+        }
+
+        return redirect()->to('/view_program');
+    }
+
+    public function viewProgramReport(){
+
+
+    }
 }
