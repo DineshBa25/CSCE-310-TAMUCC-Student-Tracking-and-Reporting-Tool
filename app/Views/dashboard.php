@@ -36,18 +36,12 @@
                         <div>
                             <h2 class="text-lg font-semibold text-white mb-3">User Authentication and Roles</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    Add New Admin
-                                </button>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    Modify User Roles
-                                </button>
-                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                    View User List
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                    Remove User
-                                </button>
+                                <a href="<?= site_url('/add_user'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Add New Administrator
+                                </a>
+                                <a href="<?= site_url('/view_users'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View, edit and delete Students or Administrators
+                                </a>
                             </div>
                         </div>
                         <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
@@ -166,15 +160,12 @@
                 <div>
                     <h2 class="text-lg font-semibold text-white mb-3">Document Upload and Management</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="<?= site_url('/add_file'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                             Upload a Document
-                        </button>
-                        <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                            View Documents
-                        </button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                            Delete a Document
-                        </button>
+                        </a>
+                        <a href="<?= site_url('/view_file'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                            View, Edit and Delete Documents
+                        </a>
                     </div>
                 </div>
             </div>
