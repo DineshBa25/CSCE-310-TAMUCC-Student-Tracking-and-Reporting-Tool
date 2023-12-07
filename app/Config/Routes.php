@@ -17,6 +17,13 @@ $routes->post('/profile/delete', 'ProfileController::permenantlyDeleteAccount');
 $routes->get('/register', 'Login::registerPage');
 $routes->post('/registration/process', 'Login::register');
 $routes->get("/start_application", "ApplicationController::viewStartApplication");
+$routes->get("/create_event", "EventController:viewCreateEvent");
+$routes->post("/event/create", "EventController::submitEvent");
+$routes->get("/view_event", "EventController::viewEvent");
+$routes->get("/edit_event/(:num)", "EventController::viewEditEvent/$1");
+$routes->post("/event/update/(:num)", "EventController::updateEvent/$1");
+$routes->post("/event/delete/(:num)", "EventController::deleteEvent/$1");
+
 $routes->post("/application/submit", "ApplicationController::submitApplication");
 $routes->get("/view_application", "ApplicationController::viewApplication");
 $routes->get("/edit_application/(:num)", "ApplicationController::viewEditApplication/$1");

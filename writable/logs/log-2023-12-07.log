@@ -1,0 +1,46 @@
+ERROR - 2023-12-07 03:04:37 --> mysqli_sql_exception: Unknown column 'a.UIN' in 'where clause' in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT e.*, p.N...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT e.*, p.N...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT e.*, p.N...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(108): CodeIgniter\Database\BaseConnection->query('SELECT e.*, p.N...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->viewEvent()
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-07 03:04:37 --> Unknown column 'a.UIN' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(108): CodeIgniter\Database\BaseConnection->query('SELECT e.*, p.Name AS Program_Name 
+            FROM Event e
+            LEFT JOIN Programs p ON e.Program_Num = p.Program_Num
+            WHERE a.UIN = ?', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->viewEvent()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-07 03:04:48 --> mysqli_sql_exception: Unknown column 'a.UIN' in 'where clause' in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT e.*, p.N...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT e.*, p.N...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT e.*, p.N...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(108): CodeIgniter\Database\BaseConnection->query('SELECT e.*, p.N...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->viewEvent()
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-07 03:04:48 --> Unknown column 'a.UIN' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(108): CodeIgniter\Database\BaseConnection->query('SELECT e.*, p.Name AS Program_Name 
+            FROM Event e
+            LEFT JOIN Programs p ON e.Program_Num = p.Program_Num
+            WHERE a.UIN = ?', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->viewEvent()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
