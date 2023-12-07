@@ -15,7 +15,7 @@
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="px-4 py-6 sm:px-0">
 
-            <h1 class="text-gray-300 p-5 text-5xl font-bold">View, edit, and delete programs</h1>
+            <h1 class="text-gray-300 p-5 text-5xl font-bold">View, edit, and delete your files</h1>
             <hr class="border ml-6 mr-6 mb-5 border-gray-600 border-2">
 
             <?php if (session()->getFlashdata('success')): ?>
@@ -33,18 +33,13 @@
                     <thead>
                     <tr>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Program Number
+                            Document Number
                         </th>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Program Name
+                            Name
                         </th>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Description
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Activation Status
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                            Link
                         </th>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                             Edit
@@ -52,54 +47,32 @@
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                             Delete
                         </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Generate Report
-                        </th>
                     </tr>
                     </thead>
                     <tbody class="text-gray-300">
 
-                    <?php foreach ($programs as $program): ?>
+                    <?php foreach ($documents as $document): ?>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $program['Program_Num'] ?>
+                                <?= $document['Doc_Num'] ?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $program['Name'] ?>
+                                <?= $document['Name'] ?>
                             </td>
                             <!-- description -->
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $program['Description'] ?>
+                                <?= $document['Link'] ?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold leading-tight">
-                                    <span aria-hidden class="absolute inset-0 <?= $program['IsActive'] === '1' ? 'bg-green-500' :  'bg-red-500' ?> rounded-full"></span>
-                                    <span class="relative text-white">
-                                        <?= $program['IsActive'] === '1' ? 'Active' :  'Deactivated'  ?>
-                                    </span>
-                                </span>
+                                <a href="/edit_file/<?= $document['Doc_Num'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <form action="/program/<?= $program['IsActive'] ? 'deactivate' : 'activate' ?>/<?= $program['Program_Num'] ?>" method="post">
+                                <form action="/file/delete/<?= $document['Doc_Num'] ?>" method="post">
                                     <?= csrf_field() ?>
-                                    <button type="submit" onclick="return confirm('Are you sure you want to <?= $program['IsActive'] ? 'DEACTIVATE' : 'ACTIVATE' ?> this program?');" class="text-<?= $program['IsActive'] ? 'red' : 'green' ?>-600 hover:text-<?= $program['IsActive'] ? 'red' : 'green' ?>-900">
-                                        <?= $program['IsActive'] ? 'Deactivate' : 'Activate' ?>
-                                    </button>
-                                </form>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <a href="/edit_program/<?= $program['Program_Num'] ?>" class="text-purple-600 hover:text-purple-900 mr-5">Edit</a>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <form action="/program/delete/<?= $program['Program_Num'] ?>" method="post">
-                                    <?= csrf_field() ?>
-                                    <button type="submit" onclick="return confirm('Are you sure you want to delete this program?');" class="text-red-600 hover:text-red-900">
+                                    <button type="submit" onclick="return confirm('Are you sure you want to delete this file?');" class="text-red-600 hover:text-red-900">
                                         Delete
                                     </button>
                                 </form>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <a href="/program_report/<?= $program['Program_Num'] ?>" class="text-purple-600 hover:text-purple-900 mr-5">View Report</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -117,7 +90,7 @@
                 Back to Dashboard
             </button>
             <button type="button" onclick="window.location.href='<?= base_url('/index.php/add_program') ?>';" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
-                Add a new program
+                Add a new file
             </button>
         </div>
     </div>

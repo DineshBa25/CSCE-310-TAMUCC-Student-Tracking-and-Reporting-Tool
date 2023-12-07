@@ -22,7 +22,7 @@ class ApplicationController extends BaseController
         $db = \Config\Database::connect();
 
         // Fetch student data from the College_Student table
-        $sql = "SELECT * FROM Programs";
+        $sql = "SELECT * FROM Programs WHERE IsActive = 1";
 
         $query = $db->query($sql);
 

@@ -15,7 +15,7 @@
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="px-4 py-6 sm:px-0">
 
-            <h1 class="text-gray-300 p-5 text-5xl font-bold">Add new program</h1>
+            <h1 class="text-gray-300 p-5 text-5xl font-bold">Add new file</h1>
             <hr class="border ml-6 mr-6 mb-5 border-gray-600 border-2">
 
             <?php if (session()->getFlashdata('success')): ?>
@@ -30,24 +30,35 @@
 
             <!-- Profile Update Form -->
             <div class=" max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md">
-                <form action="/program/add" method="post">
+                <form action="/file/add" enctype="multipart/form-data" method="post">
                     <?= csrf_field() ?>
 
 
-                    <!-- program name (text input)-->
+                    <!-- file name (text input)-->
                     <div class="mb-7">
-                        <label for="program" class="block text-white text-sm font-medium mb-2">Program Name</label>
-                        <input type="text" name="program" id="program" required class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
+                        <label for="filename" class="block text-white text-sm font-medium mb-2">File Name</label>
+                        <input type="text" name="filename" id="filename" required class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
                     </div>
 
-                    <!-- program description (text area)-->
+                    <!-- file (file)-->
                     <div class="mb-7">
-                        <label for="description" class="block text-white text-sm font-medium mb-2">Program Description</label>
-                        <textarea placeholder="Please describe the program." name="description" id="description" cols="30" rows="5" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"></textarea>
+                        <label for="userfile" class="block text-white text-sm font-medium mb-2">File</label>
+                        <input type="file" name="userfile" id="userfile" required class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
                     </div>
+
+                    <!-- file type (select with options)-->
+                    <div class="mb-7">
+                        <label for="filetype" class="block text-white text-sm font-medium mb-2">File Type (PDF Only)</label>
+                        <select name="filetype" id="filetype" required class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
+                            <option value="Resume">Resume</option>
+                            <option value="Cover Letter">Cover Letter</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
 
                     <div class="mt-4">
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit Application</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Document/File</button>
                     </div>
                 </form>
             </div>
@@ -60,8 +71,8 @@
                 Back to Dashboard
             </button>
             <!-- button to view application status-->
-            <button type="button" onclick="window.location.href='<?= base_url('/index.php/view_program') ?>';" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
-                View, Edit, or Delete Programs
+            <button type="button" onclick="window.location.href='<?= base_url('/index.php/view_file') ?>';" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
+                View, Edit, or Delete Files
             </button>
         </div>
     </div>

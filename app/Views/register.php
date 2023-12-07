@@ -20,7 +20,7 @@
             margin: auto;
         }
         .my-custom-margin-top {
-            margin-top: 350px; /* Adjust the value as needed */
+            margin-top: 600px; /* Adjust the value as needed */
             padding: 50px;
         }
     </style>
