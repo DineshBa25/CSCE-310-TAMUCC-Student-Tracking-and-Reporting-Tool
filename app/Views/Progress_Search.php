@@ -31,7 +31,7 @@
 
             <!-- Profile Update Form -->
             <div class=" max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md">
-                <form action="/profile/update_process" method="post">
+                <form action="/progress_tracking/names" method="post">
                     <?= csrf_field() ?>
                     <div class="mb-7">
                         <label for="first_name" class="block text-white text-sm font-medium mb-2">First Name</label>

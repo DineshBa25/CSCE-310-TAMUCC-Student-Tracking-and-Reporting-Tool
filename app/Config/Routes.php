@@ -16,10 +16,12 @@ $routes->post('/profile/deactivate', 'ProfileController::deactivateAccount');
 $routes->post('/profile/delete', 'ProfileController::permenantlyDeleteAccount');
 $routes->get('/register', 'Login::registerPage');
 $routes->post('/registration/process', 'Login::register');
-<<<<<<< Updated upstream
 $routes->get('/progress_tracking', 'ProgressSearchController::mainProgressPage');
+//
+$routes->post('/progress_tracking/names', 'ProgressSearchController::searchStudentData');
+$routes->post('/progress_tracking/trackpage', 'ProgressSearchController::searchUIN');
 
-=======
+
 $routes->get("/start_application", "ApplicationController::viewStartApplication");
 $routes->post("/application/submit", "ApplicationController::submitApplication");
 $routes->get("/view_application", "ApplicationController::viewApplication");
@@ -49,4 +51,3 @@ $routes->post("/user/update/(:num)", "AdminUserController::updateUser/$1");
 $routes->post("/user/delete/(:num)", "AdminUserController::deleteUser/$1");
 $routes->post("/user/deactivate/(:num)", "AdminUserController::deactivateUser/$1");
 $routes->post("/user/activate/(:num)", "AdminUserController::activateUser/$1");
->>>>>>> Stashed changes

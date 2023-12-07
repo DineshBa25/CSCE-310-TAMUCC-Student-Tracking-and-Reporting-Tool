@@ -15,7 +15,7 @@
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="px-4 py-6 sm:px-0">
 
-            <h1 class="text-gray-300 p-5 text-5xl font-bold">All Students Named:</h1>
+            <h1 class="text-gray-300 p-5 text-5xl font-bold">All Students Named <?php echo ($pulled_vals[0]['First_Name'])?> <?php echo ($pulled_vals[0]['Last_Name'])?>:</h1>
             <hr class="border ml-6 mr-6 mb-5 border-gray-600 border-2">
 
             <?php if (session()->getFlashdata('success')): ?>
@@ -39,26 +39,36 @@
                             Student Last Name
                         </th>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                            UIN
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                             View Progress
                         </th>
                     </tr>
                     </thead>
                     <tbody class="text-gray-300">
 
-                    <?php foreach ($pulled_vals as $name): ?>
+                    <?php foreach ($pulled_vals as $key=>$name):?>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $name['Program_Num'] ?>
+                                <?= ($name["First_Name"]) ?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $program['Name'] ?>
+                                <?= $name["Last_Name"]?>
                             </td>
                             <!-- description -->
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $program['Description'] ?>
+                                <?= $name["UIN"]?>
                             </td>
+                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
+                            <form action="/progress_tracking/trackpage/" method="post">
+                                    <?= csrf_field() ?>
+                                    <?php $_SESSION['uin'] = $key["UIN"]?>>
+                                    <button type="submit">view</button>
+                            </form>
+                    </td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php endforeach?>
                     </tbody>
                 </table>
             </div>

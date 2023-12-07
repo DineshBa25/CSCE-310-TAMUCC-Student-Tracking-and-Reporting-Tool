@@ -44,8 +44,7 @@ class ProgressSearchController extends BaseController
         // // Load the dashboard view with both user and student data
         return view("Progress_Search", ['userData' => $userData]);
     }
-<<<<<<< Updated upstream
-=======
+
     public function searchStudentData()
     {
         $userData = $this->userData;
@@ -76,58 +75,81 @@ class ProgressSearchController extends BaseController
         ];
 
         if(!empty($uin)){
-            $sql = "SELECT UIN FROM `sitedb`.`College_Student` WHERE UIN = ?";
+            $sql = "SELECT * FROM sitedb.College_Student WHERE UIN = ?";
             $search = $db->query($sql, [$uin]);
             $pulled_vals = $search->getRowArray();
 
             if (!$pulled_vals) {
                 $pulled_vals = [];
                 session()->setFlashdata('error', 'No student data found.');
-                return view("Progress_Search");
-                }
-        
+                return view("Progress_Search", ['userData' => $userData]);
+            }
+            $_POST['uin'] = $uin;
+            return redirect()->to('/progress_tracking/trackpage');
         }
 
         if(!empty($fname) AND !empty($lname)){
             $sql = "SELECT * FROM sitedb.Users WHERE User_Type = 'Student' AND First_Name = ? AND Last_Name = ?";
             $search = $db->query($sql, [$fname,$lname]);
-            $pulled_vals = $search->getRowArray();
+            $pulled_vals = $search->getResultArray();
 
             if (!$pulled_vals) {
                 $pulled_vals = [];
                 session()->setFlashdata('error', 'No student data found.');
-                return view("Progress_Search");
+                return view("Progress_Search", ['userData' => $userData]);
                 }
-            return view('view_students', ['userData' => $userData, 'names' => $pulled_vals]);
+            return view('view_students', ['userData' => $userData, 'pulled_vals' => $pulled_vals]);
         }
-
-
-        $input = $this->validate([
-            'first_name' => 'required|alpha_space',
-            'm_initial' => 'permit_empty|alpha',
-            'last_name' => 'required|alpha_space',
-            'email' => 'required|valid_email',
-            // add validation rules for other fields as needed
-        ]);
-        
-
-        // // Fetch student data from the College_Student table
-        if($userId != $userData['']) {
-        $sql = "SELECT UIN FROM `sitedb`.`College_Student` WHERE UIN = '';";
-        $query = $db->query($sql, [$userId]);
-        $all_named = $query->getRowArray();
-
-        if (!$all_named) {
-            $studentData = [];
-            // Optionally set an error message if no data found
-            // session()->setFlashdata('error', 'No student data found.');
-            }
-        }
-
-        // // Load the dashboard view with both user and student data
+        // GOTO init:
         return view("Progress_Search", ['userData' => $userData]);
     }
->>>>>>> Stashed changes
+    public function searchUIN()
+    {
+        $userData = $this->userData;
+        //Check if user is logged in;lde'[2cdsx12]
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Verify that the user is an admin:
+        
+        $userData = $this->userData;       
+        if($userData['User_Type'] != 'Administrator') {
+            return redirect()->to('/dashboard');
+        }
+
+        if(!empty($_SESSION['uin'])){
+            session()->setFlashdata('error', $_SESSION['uin']);
+            return view("Progress_Search", ['userData' => $userData]);
+        }
+
+        $uin = $_SESSION['uin'];
+        // // Get the user's ID from the session or other source
+        $userId = session()->get('userId'); // Ensure 'userId' is the correct session key that contains the UIN.
+
+        // // Get the database connection
+        $db = \Config\Database::connect();
+
+        $params = [
+            $userId // The WHERE clause value
+        ];
+
+        $sql = "SELECT * FROM sitedb.Class_Enrollment WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_vals = $search->getRowArray();
+
+        $sql = "SELECT * FROM sitedb.Intern_App WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_intern = $search->getRowArray();
+
+        $sql = "SELECT * FROM sitedb.Cert_Enrollment WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_enroll = $search->getRowArray();
+
+
+        return view("tracker_page", ['userData' => $userData, 'pulled_vals' => $pulled_vals, 'pulled_intern' => $pulled_intern, 'pulled_enroll' => $pulled_enroll]);
+    }
+    
 
 
     /**
