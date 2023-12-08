@@ -30,7 +30,7 @@
 
             <!-- Application Edit Form -->
             <div class="max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md">
-                <form action="/application/update/<?= $event_tracking['ET_Num'] ?>" method="post"
+                <form action="/eventtracking/update/<?= $event_tracking['ET_Num'] ?>" method="post"
                     <?= csrf_field() ?>
                     <input type="hidden" name="event_id" value="<?= $event_tracking['ET_Num'] ?>">
 

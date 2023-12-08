@@ -90,3 +90,71 @@ in APPPATH/Views/edit_event.php on line 33.
  8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 19:34:10 --> mysqli_sql_exception: Unknown column 'EventID' in 'where clause' in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('UPDATE Event SE...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE Event SE...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Event SE...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE Event SE...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->updateEvent('2')
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 19:34:10 --> Unknown column 'EventID' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE Event SET UIN = ?, Program = ?, Start_Date = ?, Start_Time = ?, Location = ?, End_Date = ?, End_Time = ?, Event_Type = ? WHERE EventID = ?', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->updateEvent('2')
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 19:35:24 --> mysqli_sql_exception: Unknown column 'Program' in 'field list' in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('UPDATE Event SE...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE Event SE...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Event SE...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE Event SE...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->updateEvent('2')
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 19:35:24 --> Unknown column 'Program' in 'field list'
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(206): CodeIgniter\Database\BaseConnection->query('UPDATE Event SET UIN = ?, Program = ?, Start_Date = ?, Start_Time = ?, Location = ?, End_Date = ?, End_Time = ?, Event_Type = ? WHERE Event_ID = ?', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->updateEvent('2')
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+CRITICAL - 2023-12-08 19:42:25 --> Undefined variable $et_num
+in APPPATH/Controllers/EventController.php on line 328.
+ 1 APPPATH/Controllers/EventController.php(328): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $et_num', '/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php', 328)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->updateEventTracking('1')
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 19:43:18 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, Event_ID = ?, UIN = ? WHERE ET_Num = ?' at line 1 in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('UPDATE Event_Tr...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE Event_Tr...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE Event_Tr...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(350): CodeIgniter\Database\BaseConnection->query('UPDATE Event_Tr...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->updateEventTracking('1')
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 19:43:18 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, Event_ID = ?, UIN = ? WHERE ET_Num = ?' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(350): CodeIgniter\Database\BaseConnection->query('UPDATE Event_Tracking SET ET_Num = ?, Event_ID = ?, UIN = ? WHERE ET_Num = ?', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->updateEventTracking('1')
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')

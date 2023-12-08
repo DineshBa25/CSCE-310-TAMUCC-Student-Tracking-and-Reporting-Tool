@@ -28,35 +28,25 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Application Edit Form -->
             <div class="max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md">
-                <form action="/application/update/<?= $event['Event_ID'] ?>" method="post"
+                <form action="/event/update/<?= $event['Event_ID'] ?>" method="post"
                     <?= csrf_field() ?>
                     <input type="hidden" name="event_id" value="<?= $event['Event_ID'] ?>">
 
-                    <!-- Existing data should be fetched from the database and filled in as values in the input fields -->
 
                     
 
-                    <!-- Completed Certifications (text area) -->
                     <div class="mb-6">
                         <label for="uin" class="block text-white text-sm font-medium mb-2">UIN:</label>
                         <textarea name="uin" id="uin" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event['UIN']) ?></textarea>
                     </div>
 
-                    <!-- Dropdown to select the program (with the current program preselected) -->
                     <div class="mb-6">
-                        <label for="program" class="block text-white text-sm font-medium mb-2">Select Program:</label>
-                        <select id="program" name="program" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
-                            <?php foreach ($programs as $program): ?>
-                                <option value="<?= esc($program['Program_Num']) ?>" <?= $program['Program_Num'] == $event['Program_Num'] ? 'selected' : '' ?>>
-                                    <?= esc($program['Name']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
+                        <label for="program_num" class="block text-white text-sm font-medium mb-2">Program Number:</label>
+                        <textarea name="program_num" id="program_num" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event['Program_Num']) ?></textarea>
                     </div>
 
-                    <!-- Uncompleted Certifications (text area) -->
+
                     <div class="mb-6">
                         <label for="start_date" class="block text-white text-sm font-medium mb-2">Start Date:</label>
                         <textarea name="start_date" id="start_date" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event['Start_Date']) ?></textarea>

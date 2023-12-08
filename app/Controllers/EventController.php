@@ -7,7 +7,6 @@ class EventController extends BaseController
 {
     public function viewCreateEvent()
     {
-        // Check if user is logged in
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
@@ -22,20 +21,21 @@ class EventController extends BaseController
         $db = \Config\Database::connect();
 
         // Fetch student data from the College_Student table
-        $sql = "SELECT * FROM Event_Tracking";
+        $sql = "SELECT * FROM Programs WHERE IsActive = 1";
 
         $query = $db->query($sql);
 
-        $event_tracking = $query->getResultArray();
+        $programs = $query->getResultArray();
 
         // If no programs exist handle it with an error message or set an empty array
-        if (!$event_tracking) {
-            $event_tracking = [];
+        if (!$programs) {
+            $programs = [];
             // Optionally set an error message if no data found
-            session()->setFlashdata('error', 'No Event data found.');
+            session()->setFlashdata('error', 'No student data found.');
         }
 
-        return view('create_event', ['userData' => $userData, 'event_tracking' => $event_tracking]);
+        //Load student application view with programs
+        return view('create_event', ['userData' => $userData, 'programs' => $programs]);
 
     }
 
@@ -184,7 +184,7 @@ class EventController extends BaseController
         // Validate the form data
         $input = $this->validate([
             'uin' => 'required|numeric',
-            'program' => 'required',
+            'program_num' => 'required',
             'start_date' => 'required',
             'start_time' => 'required',
             'location' => 'required',
@@ -202,8 +202,8 @@ class EventController extends BaseController
         $db = \Config\Database::connect();
 
         // Update the application in the database
-        $sql = "UPDATE Event SET UIN = ?, Program = ?, Start_Date = ?, Start_Time = ?, Location = ?, End_Date = ?, End_Time = ?, Event_Type = ? WHERE EventID = ?";
-        $db->query($sql, [$this->request->getVar('uin'), $this->request->getVar('program'), $this->request->getVar('start_date'), $this->request->getVar('start_time'),$this->request->getVar('location'), $this->request->getVar('end_date'), $this->request->getVar('end_time'), $this->request->getVar('event_type'), $eventID]);
+        $sql = "UPDATE Event SET UIN = ?, Program_Num = ?, Start_Date = ?, Start_Time = ?, Location = ?, End_Date = ?, End_Time = ?, Event_Type = ? WHERE Event_ID = ?";
+        $db->query($sql, [$this->request->getVar('uin'), $this->request->getVar('program_num'), $this->request->getVar('start_date'), $this->request->getVar('start_time'),$this->request->getVar('location'), $this->request->getVar('end_date'), $this->request->getVar('end_time'), $this->request->getVar('event_type'), $eventID]);
 
         if($db->affectedRows() == 1){
             session()->setFlashdata('success', 'Event updated successfully!');
@@ -316,7 +316,7 @@ class EventController extends BaseController
         return view('edit_event_tracking', ['et_num' => $et_num, 'userData' => $userData, 'event_tracking' => $event_tracking]);
     }
 
-    public function updateEventTracking($event_tracking = null)
+    public function updateEventTracking($et_num= null)
     {
 
         // Check if user is logged in
@@ -346,7 +346,7 @@ class EventController extends BaseController
         $db = \Config\Database::connect();
 
         // Update the application in the database
-        $sql = "UPDATE Event_Tracking SET ET_Num = ?, Event_ID = ?, UIN = ? WHERE ET_Num = ?";
+        $sql = "UPDATE Event_Tracking SET Event_ID = ?, UIN = ? WHERE ET_Num = ?";
         $db->query($sql, [$this->request->getVar('event_id'), $this->request->getVar('uin'), $et_num]);
 
         if($db->affectedRows() == 1){
