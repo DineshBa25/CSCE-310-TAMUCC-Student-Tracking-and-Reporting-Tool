@@ -35,12 +35,12 @@
                     <?= csrf_field() ?>
                     <div class="mb-7">
                         <label for="first_name" class="block text-white text-sm font-medium mb-2">First Name</label>
-                        <input type="text" id="first_name" name="first_name" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500" required>
+                        <input type="text" id="first_name" name="first_name" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
                     </div>
 
                     <div class="mb-7">
                         <label for="last_name" class="block text-white text-sm font-medium mb-2">Last Name</label>
-                        <input type="text" id="last_name" name="last_name" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500" required>
+                        <input type="text" id="last_name" name="last_name" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
                     </div>
                     
                     <div class="mb-7">
@@ -48,8 +48,11 @@
                         <input type="text" id="uin" name="uin" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
                     </div>
 
-                    <div class="mt-4">
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Update</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                        <a href="<?= site_url('/dashboard'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Return to Dashboard
+                        </a>
+                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Search</button> 
                     </div>
                 </form>
             </div>

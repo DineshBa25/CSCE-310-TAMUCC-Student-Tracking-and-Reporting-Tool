@@ -84,8 +84,8 @@ class ProgressSearchController extends BaseController
                 session()->setFlashdata('error', 'No student data found.');
                 return view("Progress_Search", ['userData' => $userData]);
             }
-            $_POST['uin'] = $uin;
-            return redirect()->to('/progress_tracking/trackpage');
+            $_SESSION['uin'] = $uin;
+            return redirect()->to('/progress_tracking/goto');
         }
 
         if(!empty($fname) AND !empty($lname)){
@@ -118,12 +118,16 @@ class ProgressSearchController extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        if(!empty($_SESSION['uin'])){
-            session()->setFlashdata('error', $_SESSION['uin']);
+        if(empty($_POST['uin']) AND empty($_SESSION['uin'])){
+            session()->setFlashdata('error', "no user found");
             return view("Progress_Search", ['userData' => $userData]);
         }
-
-        $uin = $_SESSION['uin'];
+        if(empty($_SESSION['uin'])){
+            $uin = $_POST['uin'];
+        }
+        if(empty($_POST['uin'])){
+            $uin = $_SESSION['uin'];
+        }
         // // Get the user's ID from the session or other source
         $userId = session()->get('userId'); // Ensure 'userId' is the correct session key that contains the UIN.
 
@@ -136,15 +140,15 @@ class ProgressSearchController extends BaseController
 
         $sql = "SELECT * FROM sitedb.Class_Enrollment WHERE UIN = ?";
         $search = $db->query($sql, [$uin]);
-        $pulled_vals = $search->getRowArray();
+        $pulled_vals = $search->getResultArray();
 
         $sql = "SELECT * FROM sitedb.Intern_App WHERE UIN = ?";
         $search = $db->query($sql, [$uin]);
-        $pulled_intern = $search->getRowArray();
+        $pulled_intern = $search->getResultArray();
 
         $sql = "SELECT * FROM sitedb.Cert_Enrollment WHERE UIN = ?";
         $search = $db->query($sql, [$uin]);
-        $pulled_enroll = $search->getRowArray();
+        $pulled_enroll = $search->getResultArray();
 
 
         return view("tracker_page", ['userData' => $userData, 'pulled_vals' => $pulled_vals, 'pulled_intern' => $pulled_intern, 'pulled_enroll' => $pulled_enroll]);

@@ -436,3 +436,330 @@ in APPPATH/Views/view_students.php on line 66.
  8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-07 15:37:02 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/Users/dylanrol...', 184)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#12 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#13 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#11 {main}
+CRITICAL - 2023-12-07 15:37:02 --> Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-07 15:37:02 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/Users/dylanrol...', 184)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#12 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#13 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#11 {main}
+CRITICAL - 2023-12-07 15:37:02 --> Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-07 15:37:02 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/Users/dylanrol...', 184)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#12 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#13 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#11 {main}
+CRITICAL - 2023-12-07 15:37:02 --> Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-07 15:37:02 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/Users/dylanrol...', 184)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#12 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#13 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#11 {main}
+CRITICAL - 2023-12-07 15:37:02 --> Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-07 15:37:42 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/Users/dylanrol...', 184)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#12 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#13 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:184
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(184): mysqli->real_connect('database1.ck7jf...', 'admin', Object(SensitiveParameterValue), 'sitedb', 3306, '', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#11 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#11 {main}
+CRITICAL - 2023-12-07 15:37:42 --> Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com failed: nodename nor servname provided, or not known
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `Users`
+WHERE `username` = :username:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(31): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Login->authenticate()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+CRITICAL - 2023-12-07 23:21:51 --> Trying to access array offset on int
+in APPPATH/Views/view_students.php on line 66.
+ 1 APPPATH/Views/view_students.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on int', '/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Views/view_students.php', 66)
+ 2 SYSTEMPATH/View/View.php(228): include('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Views/view_students.php')
+ 3 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render('view_students', [], true)
+ 5 APPPATH/Controllers/ProgressSearchController.php(101): view('view_students', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchStudentData()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')

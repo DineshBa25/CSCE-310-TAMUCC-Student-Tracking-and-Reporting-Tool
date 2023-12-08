@@ -47,7 +47,8 @@
                     </thead>
                     <tbody class="text-gray-300">
 
-                    <?php if(!empty($pulled_vals)) foreach ($pulled_vals as $key=>$name):?>
+                    <h1 class="text-gray-300 p-3 text-4xl font-bold">Student Info</h1>
+                    <?php if(!empty($pulled_vals)) foreach ($pulled_vals as $name):?>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                                 <?= ($name["Class_ID"]) ?>
@@ -62,13 +63,6 @@
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                                 <?= $name["Year"]?>
                             </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                            <form action="/program/" method="post">
-                                    <?= csrf_field() ?>
-                                    <input type = 'hidden' name = "key_used" value = <?php echo($name["UIN"])?>>
-                                    <button type="submit">view</button>
-                            </form>
-                    </td>
                         </tr>
                     <?php endforeach ?>
                     </tbody>
@@ -96,8 +90,8 @@
                     </tr>
                     </thead>
                     <tbody class="text-gray-300">
-
-                    <?php if(!empty($pulled_intern)) foreach ($pulled_intern as $key=>$name):?>
+                    <h1 class="text-gray-300 p-3 text-4xl font-bold">Application Info</h1>
+                    <?php if(!empty($pulled_intern)) foreach ($pulled_intern as $name):?>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                                 <?= ($name["IA_Num"]) ?>
@@ -148,8 +142,8 @@
                     </tr>
                     </thead>
                     <tbody class="text-gray-300">
-
-                    <?php if(!empty($pulled_enroll)) foreach ($pulled_enroll as $key=>$name):?>
+                    <h1 class="text-gray-300 p-3 text-4xl font-bold">Certification Info</h1>
+                    <?php if(!empty($pulled_enroll)) foreach ($pulled_enroll as $name):?>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                                 <?= ($name["CertE_Num"]) ?>
@@ -191,7 +185,7 @@
                 Back to Dashboard
             </button>
             <button type="button" onclick="window.location.href='<?= base_url('/index.php/add_program') ?>';" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
-                Add a new program
+                Add A New Report
             </button>
         </div>
     </div>

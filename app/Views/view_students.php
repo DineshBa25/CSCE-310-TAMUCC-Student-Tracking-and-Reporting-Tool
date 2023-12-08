@@ -58,12 +58,13 @@
                             </td>
                             <!-- description -->
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $name["UIN"]?>
+                                <?= $name["UIN"]; $temp = $name["UIN"];?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                             <form action="/progress_tracking/trackpage/" method="post">
                                     <?= csrf_field() ?>
-                                    <?php $_SESSION['uin'] = $key["UIN"]?>>
+                                    <?php $_SESSION['uin'] = $temp[$key]?>>
+                                    <input type="hidden" name="uin" id = 'uin' value="<?php echo $name['UIN']; ?>"/>
                                     <button type="submit">view</button>
                             </form>
                     </td>
