@@ -58,4 +58,6 @@ $routes->post("/user/update/(:num)", "AdminUserController::updateUser/$1");
 $routes->post("/user/delete/(:num)", "AdminUserController::deleteUser/$1");
 $routes->post("/user/deactivate/(:num)", "AdminUserController::deactivateUser/$1");
 $routes->post("/user/activate/(:num)", "AdminUserController::activateUser/$1");
-
+$routes->get("/reset_password", "Login::viewResetPassword");
+$routes->post("/password/reset", "Login::resetPassword");
+$routes->get('/reports/viewReportsDashboard', 'ReportsController::viewReportsDashboard');
