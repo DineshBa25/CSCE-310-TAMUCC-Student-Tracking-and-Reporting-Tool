@@ -49,7 +49,7 @@ class EventController extends BaseController
         // needs changing
         $input = $this->validate([
             'uin' => 'required|numeric',
-            'program' => 'required',
+            'program_num' => 'required',
             'start_date' => 'required',
             'start_time' => 'required',
             'location' => 'required',
@@ -70,9 +70,9 @@ class EventController extends BaseController
         // get the database connection
         $db = \Config\Database::connect();
 
-        // insert the application into the database
-        $sql = "INSERT INTO Event (UIN, Program_Num, Start_Date, Start_Time, Location, End_date, End_Time, Event_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $db->query($sql, [$this->request->getVar('uin'), $this->request->getVar('program'), $this->request->getVar('start_date'), $this->request->getVar('start_time'), $this->request->getVar('end_date'), $this->request->getVar('end_time'), $this->request->getVar('event_type')]);
+        // insert the event into the database
+        $sql = "INSERT INTO Event (UIN, Program_Num, Start_Date, Start_Time, Location, End_Date, End_Time, Event_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $db->query($sql, [$this->request->getVar('uin'), $this->request->getVar('program_num'), $this->request->getVar('start_date'), $this->request->getVar('start_time'), $this->request->getVar('location'), $this->request->getVar('end_date'), $this->request->getVar('end_time'), $this->request->getVar('event_type')]);
 
         if($db->affectedRows() == 1){
             session()->setFlashdata('success', 'Application submitted successfully!');
@@ -99,7 +99,6 @@ class EventController extends BaseController
         // Get the database connection
         $db = \Config\Database::connect();
 
-        // Fetch student applications along with program names
         $sql = "SELECT e.*, p.Name
                 FROM Event e
                 LEFT JOIN Programs p ON e.Program_Num = p.Name;";
@@ -108,14 +107,12 @@ class EventController extends BaseController
 
         $events = $query->getResultArray();
 
-        // If no applications exist handle it with an error message or set an empty array
         if (!$events) {
             // Optionally set an error message if no data found
             session()->setFlashdata('error', 'No Events found.');
             return view('view_event', ['userData' => $userData, 'events' => []]);
         }
 
-        // Load student application view with programs
         return view('view_event', ['userData' => $userData, 'events' => $events]);
     }
 

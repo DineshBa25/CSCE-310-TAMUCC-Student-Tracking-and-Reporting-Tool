@@ -158,3 +158,103 @@ in SYSTEMPATH/Database/BaseConnection.php on line 647.
  4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 21:36:50 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1 in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO Eve...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO Eve...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO Eve...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Eve...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 21:36:50 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Event (UIN, Program_Num, Start_Date, Start_Time, Location, End_date, End_Time, Event_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 21:53:04 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1 in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO Eve...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO Eve...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO Eve...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Eve...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 21:53:04 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Event (UIN, Program_Num, Start_Date, Start_Time, Location, End_date, End_Time, Event_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 22:15:38 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1 in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO Eve...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO Eve...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO Eve...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Eve...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 22:15:38 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Event (UIN, Program_Num, Start_Date, Start_Time, Location, End_date, End_Time, Event_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 22:16:58 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1 in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO Eve...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO Eve...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO Eve...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Eve...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 22:16:58 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Event (UIN, Program_Num, Start_Date, Start_Time, Location, End_date, End_Time, Event_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-08 22:18:32 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1 in /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO Eve...', 0)
+#1 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO Eve...')
+#2 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO Eve...')
+#3 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Eve...', Array)
+#4 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+#5 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+#6 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/chandler...')
+#9 {main}
+CRITICAL - 2023-12-08 22:18:32 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?, ?, ?, ?)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/EventController.php(75): CodeIgniter\Database\BaseConnection->query('INSERT INTO Event (UIN, Program_Num, Start_Date, Start_Time, Location, End_Date, End_Time, Event_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\EventController->submitEvent()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EventController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')

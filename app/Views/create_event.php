@@ -32,21 +32,16 @@
             <div class=" max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md">
                 <form action="/event/create" method="post">
                     <?= csrf_field() ?>
-                    <div class="mb-7">
-                        <label for="program" class="block text-white text-sm font-medium mb-2">What program is the event for?</label>
-                        <!-- dropdown with all the programs listed-->
-                        <select id="program" name="program" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500">
-                            <option value="" disabled selected>--Select a program--</option>
-                            <!-- go through $programs and add each ones 'Name' as an option-->
-                            <?php foreach ($programs as $program): ?>
-                                <option value="<?= esc($program['Program_Num']) ?>"><?= esc($program['Name']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                    
                     <!-- UIN (greyed out and disabled)-->
                     <div class="mb-7">
                         <label for="uin" class="block text-white text-sm font-medium mb-2">UIN</label>
                         <textarea placeholder="Enter your uin" name="uin" id="uin" cols="30" rows="5" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"></textarea>
+                    </div>
+
+                    <div class="mb-7">
+                        <label for="program_num" class="block text-white text-sm font-medium mb-2">Program Num</label>
+                        <textarea placeholder="Enter the program number" name="program_num" id="program_num" cols="30" rows="5" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"></textarea>
                     </div>
 
                     <div class="mb-7">

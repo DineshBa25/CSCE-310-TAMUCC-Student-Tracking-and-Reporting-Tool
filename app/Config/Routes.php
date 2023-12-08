@@ -18,7 +18,7 @@ $routes->get('/register', 'Login::registerPage');
 $routes->post('/registration/process', 'Login::register');
 $routes->get("/start_application", "ApplicationController::viewStartApplication");
 
-$routes->get("/create_event", "EventController:viewCreateEvent");
+$routes->get("/create_event", "EventController::viewCreateEvent");
 $routes->post("/event/create", "EventController::submitEvent");
 $routes->get("/view_event", "EventController::viewEvent");
 $routes->get("/edit_event/(:num)", "EventController::viewEditEvent/$1");
