@@ -346,7 +346,7 @@ class EventController extends BaseController
         $db = \Config\Database::connect();
 
         // Update the application in the database
-        $sql = "UPDATE Event_Tracking SET Event_ID = ?, UIN = ? WHERE ET_Num = ?";
+        $sql = "UPDATE Event_Tracking SET ET_Num = ?, Event_ID = ?, UIN = ? WHERE ET_Num = ?";
         $db->query($sql, [$this->request->getVar('event_id'), $this->request->getVar('uin'), $et_num]);
 
         if($db->affectedRows() == 1){
