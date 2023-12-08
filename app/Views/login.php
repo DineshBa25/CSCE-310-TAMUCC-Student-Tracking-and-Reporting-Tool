@@ -50,11 +50,14 @@
         <div class="mb-6">
             <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
             <input type="password" name="password" id="password" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+            <div class="text-right mb-4">
+                <a href="<?= site_url('reset_password') ?>" class="text-blue-500 hover:underline text-sm">Forgot Password?</a>
+            </div>
         </div>
-
         <div class="mb-4">
             <a href="<?= site_url('register') ?>" class="text-blue-500 hover:underline">Don't have an account? Register here</a>
         </div>
+
 
         <div>
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Login</button>
