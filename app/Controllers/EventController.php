@@ -46,7 +46,7 @@ class EventController extends BaseController
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        // needs changing
+        // getting input and validating from user
         $input = $this->validate([
             'uin' => 'required|numeric',
             'program_num' => 'required',
@@ -123,7 +123,7 @@ class EventController extends BaseController
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        // Check if an application number has been provided
+        // Check if an event number has been provided
         if (!$eventID) {
             // Optionally set an error message if no application number is provided
             session()->setFlashdata('error', 'No application selected for editing.');
@@ -136,7 +136,7 @@ class EventController extends BaseController
         // Get the database connection
         $db = \Config\Database::connect();
 
-        // Fetch the specific application along with the program name
+        // Fetch the specific event along with the program name
         $sql = "SELECT e.*, p.Name AS Program_Name 
             FROM Event e
             LEFT JOIN Programs p ON e.Program_Num = p.Program_Num
@@ -198,7 +198,7 @@ class EventController extends BaseController
         // Get the database connection
         $db = \Config\Database::connect();
 
-        // Update the application in the database
+        // Update the event in the database
         $sql = "UPDATE Event SET UIN = ?, Program_Num = ?, Start_Date = ?, Start_Time = ?, Location = ?, End_Date = ?, End_Time = ?, Event_Type = ? WHERE Event_ID = ?";
         $db->query($sql, [$this->request->getVar('uin'), $this->request->getVar('program_num'), $this->request->getVar('start_date'), $this->request->getVar('start_time'),$this->request->getVar('location'), $this->request->getVar('end_date'), $this->request->getVar('end_time'), $this->request->getVar('event_type'), $eventID]);
 
@@ -218,7 +218,7 @@ class EventController extends BaseController
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        // Check if an application number has been provided
+        // Check if an event number has been provided
         if (!$eventID) {
             // Optionally set an error message if no application number is provided
             session()->setFlashdata('error', 'No event selected for deletion.');
@@ -228,7 +228,7 @@ class EventController extends BaseController
         // Get the database connection
         $db = \Config\Database::connect();
 
-        // Delete the application from the database
+        // Delete the event from the database
         $sql = "DELETE FROM Event WHERE Event_ID = ?";
         $db->query($sql, [$eventID]);
 
@@ -261,14 +261,14 @@ class EventController extends BaseController
 
         $event_trackings = $query->getResultArray();
 
-        // If no applications exist handle it with an error message or set an empty array
+        // If no events exist handle it with an error message or set an empty array
         if (!$event_trackings) {
             // Optionally set an error message if no data found
             session()->setFlashdata('error', 'No Events found.');
             return view('view_event', ['userData' => $userData, 'events' => []]);
         }
 
-        // Load student application view with programs
+        // Load  event view with programs
         return view('view_event_tracking', ['userData' => $userData, 'event_trackings' => $event_trackings]);
     }
 
@@ -279,7 +279,7 @@ class EventController extends BaseController
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        // Check if an application number has been provided
+        // Check if an event number has been provided
         if (!$et_num) {
             // Optionally set an error message if no application number is provided
             session()->setFlashdata('error', 'No application selected for editing.');
@@ -299,7 +299,7 @@ class EventController extends BaseController
 
         $event_tracking = $query->getRowArray(); // Use getRowArray() to fetch a single row
 
-        // If the application does not exist handle it with an error message
+        // If the event does not exist handle it with an error message
         if (!$event_tracking) {
             // Optionally set an error message if no application is found
             session()->setFlashdata('error', 'Event not found.');
@@ -309,7 +309,7 @@ class EventController extends BaseController
         
        
 
-        // Load the edit application view with the application data and available programs
+        // Load the edit event view with the event data and available programs
         return view('edit_event_tracking', ['et_num' => $et_num, 'userData' => $userData, 'event_tracking' => $event_tracking]);
     }
 
@@ -321,11 +321,11 @@ class EventController extends BaseController
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        // Check if an application number has been provided
+        // Check if an event number has been provided
         if (!$et_num) {
-            // Optionally set an error message if no application number is provided
+            // Optionally set an error message if no event number is provided
             session()->setFlashdata('error', 'No Event selected for editing.');
-            return redirect()->to('/view_event_tracking'); // Redirect to the application listing page
+            return redirect()->to('/view_event_tracking'); // Redirect to the event listing page
         }
 
         // Validate the form data
@@ -342,7 +342,7 @@ class EventController extends BaseController
         // Get the database connection
         $db = \Config\Database::connect();
 
-        // Update the application in the database
+        // Update the event in the database
         $sql = "UPDATE Event_Tracking SET Event_ID = ?, UIN = ? WHERE ET_Num = ?";
         $db->query($sql, [$this->request->getVar('event_id'), $this->request->getVar('uin'), $et_num]);
 

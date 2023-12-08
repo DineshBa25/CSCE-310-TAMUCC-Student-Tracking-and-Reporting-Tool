@@ -28,32 +28,27 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Application Edit Form -->
+            <!-- Event Tracking Edit Form -->
             <div class="max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md">
                 <form action="/eventtracking/update/<?= $event_tracking['ET_Num'] ?>" method="post"
                     <?= csrf_field() ?>
                     <input type="hidden" name="event_id" value="<?= $event_tracking['ET_Num'] ?>">
 
-                    <!-- Existing data should be fetched from the database and filled in as values in the input fields -->
 
                     
 
-                    <!-- Completed Certifications (text area) -->
                     <div class="mb-6">
                         <label for="et_num" class="block text-white text-sm font-medium mb-2">Event Tracking Number:</label>
                         <textarea name="et_num" id="et_num" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event_tracking['ET_Num']) ?></textarea>
                     </div>
 
-                    <!-- Dropdown to select the program (with the current program preselected) -->
                     
 
-                    <!-- Uncompleted Certifications (text area) -->
                     <div class="mb-6">
                         <label for="event_id" class="block text-white text-sm font-medium mb-2">Event ID</label>
                         <textarea name="event_id" id="event_id" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event_tracking['Event_ID']) ?></textarea>
                     </div>
 
-                    <!-- Purpose Statement (text area) -->
                     <div class="mb-6">
                         <label for="uin" class="block text-white text-sm font-medium mb-2">UIN</label>
                         <textarea name="uin" id="uin" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event_tracking['UIN']) ?></textarea>

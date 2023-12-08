@@ -28,7 +28,7 @@
                 </div>
             <?php endif; ?>
 
-            <!-- Profile Update Form -->
+            <!-- Event Creation Form -->
             <div class=" max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md">
                 <form action="/event/create" method="post">
                     <?= csrf_field() ?>
@@ -88,7 +88,7 @@
                 </svg>
                 Back to Dashboard
             </button>
-            <!-- button to view application status-->
+            <!-- button to view events-->
             <button type="button" onclick="window.location.href='<?= base_url('/index.php/view_event') ?>';" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
                 View Events
             </button>

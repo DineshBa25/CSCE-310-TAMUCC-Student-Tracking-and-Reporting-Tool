@@ -52,7 +52,6 @@
                         <textarea name="start_date" id="start_date" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event['Start_Date']) ?></textarea>
                     </div>
 
-                    <!-- Purpose Statement (text area) -->
                     <div class="mb-6">
                         <label for="start_time" class="block text-white text-sm font-medium mb-2">Start Time:</label>
                         <textarea name="start_time" id="start_time" rows="4" class="w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:border-indigo-500"><?= esc($event['Start_Time']) ?></textarea>
