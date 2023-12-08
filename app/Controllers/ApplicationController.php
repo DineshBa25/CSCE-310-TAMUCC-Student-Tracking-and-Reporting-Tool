@@ -99,7 +99,7 @@ class ApplicationController extends BaseController
         // Fetch student applications along with program names
         $sql = "SELECT a.*, p.Name AS Program_Name 
             FROM Applications a
-            LEFT JOIN Programs p ON a.Program_Num = p.Program_Num
+            JOIN Programs p ON a.Program_Num = p.Program_Num
             WHERE a.UIN = ?";
 
         $query = $db->query($sql, [$userId]);

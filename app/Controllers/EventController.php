@@ -100,27 +100,26 @@ class EventController extends BaseController
         $db = \Config\Database::connect();
 
         // Fetch student applications along with program names
-        $sql = "SELECT e.*, p.Name AS Program_Name 
-            FROM Event e
-            LEFT JOIN Programs p ON e.Program_Num = p.Program_Num
-            WHERE a.UIN = ?";
+        $sql = "SELECT e.*, p.Name
+                FROM Event e
+                LEFT JOIN Programs p ON e.Program_Num = p.Name;";
 
         $query = $db->query($sql, [$userId]);
 
-        $event = $query->getResultArray();
+        $events = $query->getResultArray();
 
         // If no applications exist handle it with an error message or set an empty array
-        if (!$event) {
+        if (!$events) {
             // Optionally set an error message if no data found
             session()->setFlashdata('error', 'No Events found.');
-            return view('view_event', ['userData' => $userData, 'applications' => []]);
+            return view('view_event', ['userData' => $userData, 'events' => []]);
         }
 
         // Load student application view with programs
-        return view('view_event', ['userData' => $userData, 'events' => $event]);
+        return view('view_event', ['userData' => $userData, 'events' => $events]);
     }
 
-    public function viewEditEvent($appNum = null)
+    public function viewEditEvent($eventID= null)
     {
         // Check if user is logged in
         if (!session()->get('isLoggedIn')) {
@@ -148,7 +147,7 @@ class EventController extends BaseController
 
         $query = $db->query($sql, [$eventID]);
 
-        $application = $query->getRowArray(); // Use getRowArray() to fetch a single row
+        $event = $query->getRowArray(); // Use getRowArray() to fetch a single row
 
         // If the application does not exist handle it with an error message
         if (!$event) {
@@ -203,7 +202,7 @@ class EventController extends BaseController
         $db = \Config\Database::connect();
 
         // Update the application in the database
-        $sql = "UPDATE Applications SET UIN = ?, Program = ?, Start_Date = ?, Start_Time = ?, Location = ?, End_Date = ?, End_Time = ?, Event_Type = ? WHERE EventID = ?";
+        $sql = "UPDATE Event SET UIN = ?, Program = ?, Start_Date = ?, Start_Time = ?, Location = ?, End_Date = ?, End_Time = ?, Event_Type = ? WHERE EventID = ?";
         $db->query($sql, [$this->request->getVar('uin'), $this->request->getVar('program'), $this->request->getVar('start_date'), $this->request->getVar('start_time'),$this->request->getVar('location'), $this->request->getVar('end_date'), $this->request->getVar('end_time'), $this->request->getVar('event_type'), $eventID]);
 
         if($db->affectedRows() == 1){
@@ -215,7 +214,7 @@ class EventController extends BaseController
         return redirect()->to('/view_event');
     }
 
-    public function deleteApplication($appNum = null)
+    public function deleteEvent($eventID = null)
     {
         // Check if user is logged in
         if (!session()->get('isLoggedIn')) {
@@ -233,7 +232,7 @@ class EventController extends BaseController
         $db = \Config\Database::connect();
 
         // Delete the application from the database
-        $sql = "DELETE FROM Event WHERE EventID = ?";
+        $sql = "DELETE FROM Event WHERE Event_ID = ?";
         $db->query($sql, [$eventID]);
 
         if($db->affectedRows() == 1){
@@ -244,7 +243,119 @@ class EventController extends BaseController
 
         return redirect()->to('/view_event');
     }
-    public function eventTracking()
-    {}
+    public function viewEventTracking()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Assuming you have the user data stored in the session
+        $userData = $this->userData;
+
+        // Get the user's ID from the session or other source
+        $userId = session()->get('UIN'); // Ensure 'userId' is the correct session key that contains the UIN.
+
+        // Get the database connection
+        $db = \Config\Database::connect();
+
+        $sql = "SELECT * FROM Event_Tracking";
+
+        $query = $db->query($sql, [$userId]);
+
+        $event_trackings = $query->getResultArray();
+
+        // If no applications exist handle it with an error message or set an empty array
+        if (!$event_trackings) {
+            // Optionally set an error message if no data found
+            session()->setFlashdata('error', 'No Events found.');
+            return view('view_event', ['userData' => $userData, 'events' => []]);
+        }
+
+        // Load student application view with programs
+        return view('view_event_tracking', ['userData' => $userData, 'event_trackings' => $event_trackings]);
+    }
+
+    public function viewEditEventTracking($et_num= null)
+    {
+        // Check if user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Check if an application number has been provided
+        if (!$et_num) {
+            // Optionally set an error message if no application number is provided
+            session()->setFlashdata('error', 'No application selected for editing.');
+            return redirect()->to('/view_event_tracking'); // Redirect to the application listing page
+        }
+
+        // Assuming you have the user data stored in the session
+        $userData = $this->userData;
+
+        // Get the database connection
+        $db = \Config\Database::connect();
+
+        // Fetch the specific application along with the program name
+        $sql = "SELECT * FROM Event_Tracking";
+
+        $query = $db->query($sql, [$et_num]);
+
+        $event_tracking = $query->getRowArray(); // Use getRowArray() to fetch a single row
+
+        // If the application does not exist handle it with an error message
+        if (!$event_tracking) {
+            // Optionally set an error message if no application is found
+            session()->setFlashdata('error', 'Event not found.');
+            return redirect()->to('/view_event_tracking'); // Redirect to the application listing page
+        }
+
+        
+       
+
+        // Load the edit application view with the application data and available programs
+        return view('edit_event', ['et_num' => $et_num, 'userData' => $userData, 'event_tracking' => $event_tracking]);
+    }
+
+    public function updateEventTracking($event_tracking = null)
+    {
+
+        // Check if user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Check if an application number has been provided
+        if (!$et_num) {
+            // Optionally set an error message if no application number is provided
+            session()->setFlashdata('error', 'No Event selected for editing.');
+            return redirect()->to('/view_event_tracking'); // Redirect to the application listing page
+        }
+
+        // Validate the form data
+        $input = $this->validate([
+            'event_id' => 'required|numeric',
+            'uin' => 'required|numeric',
+        ]);
+
+        // If validation fails, redirect back to the profile update form with errors
+        if (!$input) {
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
+        // Get the database connection
+        $db = \Config\Database::connect();
+
+        // Update the application in the database
+        $sql = "UPDATE Event_Tracking SET Event_ID = ?, UIN = ? WHERE ET_Num = ?";
+        $db->query($sql, [$this->request->getVar('event_id'), $this->request->getVar('uin'), $et_num]);
+
+        if($db->affectedRows() == 1){
+            session()->setFlashdata('success', 'Event updated successfully!');
+        } else {
+            session()->setFlashdata('error', 'Event failed to update.');
+        }
+
+        return redirect()->to('/view_event_tracking');
+    }
 
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
+    <title>Event Trackings</title>
     <!-- Include Tailwind CSS from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -15,7 +15,7 @@
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="px-4 py-6 sm:px-0">
 
-            <h1 class="text-gray-300 p-5 text-5xl font-bold">Events</h1>
+            <h1 class="text-gray-300 p-5 text-5xl font-bold">Event Trackings</h1>
             <hr class="border ml-6 mr-6 mb-5 border-gray-600 border-2">
 
             <?php if (session()->getFlashdata('success')): ?>
@@ -34,72 +34,38 @@
                     <thead>
                     <tr>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                            Event Tracking Number
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                             Event ID
                         </th>
                         <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                             UIN
                         </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Program Name
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Start Date
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Start Time
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Location
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            End Date
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            End Time
-                        </th>
-                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                            Event Type
-                        </th>
+                        
                     </tr>
                     </thead>
                     <tbody class="text-gray-300">
 
-                    <?php foreach ($events as $event): ?>
+                    <?php foreach ($event_trackings as $event_tracking): ?>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['Event_ID'] ?>
+                                <?= $event_tracking['ET_num'] ?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['UIN'] ?>
+                                <?= $event_tracking['Event_ID'] ?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['Program_Num'] ?>
+                                <?= $event_tracking['UIN'] ?>
+                            </td>
+                            
+                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
+                                <a href="/edit_event_tracking/<?= $event_tracking['ET_num'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['Start_Date'] ?>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['Start_Time'] ?>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['Location'] ?>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['End_Date'] ?>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['End_Time'] ?>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event['Event_Type'] ?>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <a href="/edit_event/<?= $event['Event_ID'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <form action="/event/delete/<?= $event['Event_ID'] ?>" method="post">
+                                <form action="/eventtracking/delete/<?= $event['ET_num'] ?>" method="post">
                                     <?= csrf_field() ?>
-                                    <button type="submit" onclick="return confirm('Are you sure you want to delete this event?');" class="text-red-600 hover:text-red-900">
+                                    <button type="submit" onclick="return confirm('Are you sure you want to delete this event tracking?');" class="text-red-600 hover:text-red-900">
                                         Delete
                                     </button>
                                 </form>

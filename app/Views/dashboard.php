@@ -91,6 +91,9 @@
                                 <a href="<?= site_url('/view_event'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
                                     View Event
                                 </a>
+                                <a href="<?= site_url('/edit_event_tracking'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View/Edit Event Tracking
+                                </a>
                         </div>
                  </div>
                         <!-- No divider after the last section -->
