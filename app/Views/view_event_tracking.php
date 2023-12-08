@@ -50,7 +50,7 @@
                     <?php foreach ($event_trackings as $event_tracking): ?>
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $event_tracking['ET_num'] ?>
+                                <?= $event_tracking['ET_Num'] ?>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                                 <?= $event_tracking['Event_ID'] ?>
@@ -60,10 +60,10 @@
                             </td>
                             
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <a href="/edit_event_tracking/<?= $event_tracking['ET_num'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
+                                <a href="/edit_event_tracking/<?= $event_tracking['ET_Num'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <form action="/eventtracking/delete/<?= $event['ET_num'] ?>" method="post">
+                                <form action="/eventtracking/delete/<?= $event_tracking['ET_Num'] ?>" method="post">
                                     <?= csrf_field() ?>
                                     <button type="submit" onclick="return confirm('Are you sure you want to delete this event tracking?');" class="text-red-600 hover:text-red-900">
                                         Delete

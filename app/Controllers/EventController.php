@@ -313,7 +313,7 @@ class EventController extends BaseController
        
 
         // Load the edit application view with the application data and available programs
-        return view('edit_event', ['et_num' => $et_num, 'userData' => $userData, 'event_tracking' => $event_tracking]);
+        return view('edit_event_tracking', ['et_num' => $et_num, 'userData' => $userData, 'event_tracking' => $event_tracking]);
     }
 
     public function updateEventTracking($event_tracking = null)
