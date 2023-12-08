@@ -119,4 +119,37 @@ class Login extends Controller
         session()->destroy();
         return redirect()->to('/login');
     }
+
+    public function viewResetPassword()
+    {
+        return view('reset_password');
+    }
+
+    public function resetPassword()
+    {
+        $session = session();
+        $username = $this->request->getVar('username');
+        $newPassword = $this->request->getVar('new_password');
+        $confirmPassword = $this->request->getVar('confirm_password');
+
+        if ($newPassword !== $confirmPassword) {
+            $session->setFlashdata('error', 'Password and Confirm Password do not match.');
+            return redirect()->to('/reset_password')->withInput();
+        }
+
+        // Retrieve user data from the UserModel
+        $data = $this->userModel->where('username', $username)->first();
+
+        if (!$data) {
+            $session->setFlashdata('error', 'Username does not exist');
+            return redirect()->to('/reset_password');
+        }
+
+        // Update the user's password
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $this->userModel->update($data['UIN'], ['Passwords' => $hashedPassword]);
+
+        $session->setFlashdata('success', 'Password reset successfully.');
+        return redirect()->to('/login');
+    }
 }

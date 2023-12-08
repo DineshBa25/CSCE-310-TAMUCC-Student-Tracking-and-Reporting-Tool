@@ -61,8 +61,11 @@
                             </td>
                             <!-- description -->
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
-                                <?= $document['Link'] ?>
+                                <a href="<?= esc($document['Link']) ?>" target="_blank">
+                                    <?= esc($document['Link']) ?>
+                                </a>
                             </td>
+
                             <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
                                 <a href="/edit_file/<?= $document['Doc_Num'] ?>" class="text-indigo-600 hover:text-indigo-900 mr-5">Edit</a>
                             </td>
