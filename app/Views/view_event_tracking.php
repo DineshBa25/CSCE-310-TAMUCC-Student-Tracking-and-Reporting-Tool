@@ -85,18 +85,7 @@
                 </svg>
                 Back to Dashboard
             </button>
-            <!-- button to view application status-->
-            <button type="button" onclick="window.location.href='<?= base_url('/index.php/event/create') ?>';" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
-                Create Event
-            </button>
-            <!-- button to edit application-->
-            <button type="button" onclick="window.location.href='<?= base_url('/index.php/event/view') ?>';" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
-                View Event
-            </button>
-            <!-- button to delete application-->
-            <button type="button" onclick="window.location.href='<?= base_url('/index.php/event/edit') ?>';" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
-                Edit Event
-            </button>
+            
         </div>
     </div>
 </main>

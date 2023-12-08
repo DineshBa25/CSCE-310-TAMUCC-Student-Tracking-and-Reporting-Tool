@@ -258,3 +258,44 @@ in SYSTEMPATH/Database/BaseConnection.php on line 647.
  4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/chandlergerold/Documents/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+INFO - 2023-12-08 22:39:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 22:39:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-08 22:39:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:25 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:25 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:26 --> Current URI: /index.php/view_event | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:26 --> Current URI: /index.php/view_event | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:28 --> Current URI: /index.php/edit_event/3 | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:28 --> Current URI: /index.php/edit_event/3 | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:30 --> Current URI: /index.php/view_event | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:30 --> Current URI: /index.php/view_event | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:31 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:31 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:33 --> Current URI: /index.php/create_event | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:33 --> Current URI: /index.php/create_event | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:35 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:35 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:37 --> Current URI: /index.php/view_event | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:37 --> Current URI: /index.php/view_event | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:39 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:39 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:41 --> Current URI: /index.php/view_event_tracking | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:41 --> Current URI: /index.php/view_event_tracking | Expected path: /index.php/reports
+INFO - 2023-12-08 22:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:39:49 --> Current URI: /index.php/view_event_tracking | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:39:49 --> Current URI: /index.php/view_event_tracking | Expected path: /index.php/reports
+INFO - 2023-12-08 22:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:40:04 --> Current URI: /index.php/view_event_tracking | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:40:04 --> Current URI: /index.php/view_event_tracking | Expected path: /index.php/reports
+INFO - 2023-12-08 22:40:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-08 22:40:05 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-08 22:40:05 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
