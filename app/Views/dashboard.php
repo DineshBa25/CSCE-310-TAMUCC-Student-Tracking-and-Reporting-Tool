@@ -135,9 +135,9 @@
                 <div>
                     <h2 class="text-lg font-semibold text-white mb-3">Program Progress Tracking</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" action="/progress_tracking" method="get">
-                            Modify Progress Records
-                        </button>
+                        <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="<?= site_url('/progress_tracking/gostu'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                        View/Modify Progress Records
+                                </a>
                     </div>
                 </div>
                 <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->

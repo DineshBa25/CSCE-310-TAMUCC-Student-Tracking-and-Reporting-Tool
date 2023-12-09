@@ -60,6 +60,7 @@ class ProgressSearchController extends BaseController
             return redirect()->to('/dashboard');
         }
 
+
         // // Get the user's ID from the session or other source
         $userId = session()->get('userId'); // Ensure 'userId' is the correct session key that contains the UIN.
 
@@ -103,6 +104,56 @@ class ProgressSearchController extends BaseController
         // GOTO init:
         return view("Progress_Search", ['userData' => $userData]);
     }
+
+    public function searchUINstu()
+    {
+        $userData = $this->userData;
+        //Check if user is logged in;lde'[2cdsx12]
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+    
+
+        if(empty($_POST['uin']) AND empty($_SESSION['uin'])){
+            session()->setFlashdata('error', "error");
+            return view("dashboard", ['userData' => $userData]);
+        }
+        if(empty($_SESSION['uin'])){
+            $uin = $_POST['uin'];
+        }
+        if(empty($_POST['uin'])){
+            $uin = $_SESSION['uin'];
+        }
+        // // Get the user's ID from the session or other source
+        $userId = session()->get('userId'); // Ensure 'userId' is the correct session key that contains the UIN.
+
+        // // Get the database connection
+        $db = \Config\Database::connect();
+
+        $params = [
+            $userId // The WHERE clause value
+        ];
+
+        $sql = "SELECT * FROM sitedb.Class_Enrollment WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_vals = $search->getResultArray();
+
+        $sql = "SELECT * FROM sitedb.Intern_App WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_intern = $search->getResultArray();
+
+        $sql = "SELECT * FROM sitedb.Cert_Enrollment WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_enroll = $search->getResultArray();
+
+        $sql = "SELECT * FROM sitedb.Progress_Report WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_report = $search->getResultArray();
+
+
+        return view("tracker_page", ['userData' => $userData, 'pulled_vals' => $pulled_vals, 'pulled_intern' => $pulled_intern, 'pulled_enroll' => $pulled_enroll, 'pulled_report' => $pulled_report]);
+    }
     public function searchUIN()
     {
         $userData = $this->userData;
@@ -111,12 +162,7 @@ class ProgressSearchController extends BaseController
             return redirect()->to('/login'); // Redirect to login if not logged in
         }
 
-        // Verify that the user is an admin:
-        
-        $userData = $this->userData;       
-        if($userData['User_Type'] != 'Administrator') {
-            return redirect()->to('/dashboard');
-        }
+    
 
         if(empty($_POST['uin']) AND empty($_SESSION['uin'])){
             session()->setFlashdata('error', "no user found");
@@ -150,8 +196,55 @@ class ProgressSearchController extends BaseController
         $search = $db->query($sql, [$uin]);
         $pulled_enroll = $search->getResultArray();
 
+        $sql = "SELECT * FROM sitedb.Progress_Report WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_report = $search->getResultArray();
 
-        return view("tracker_page", ['userData' => $userData, 'pulled_vals' => $pulled_vals, 'pulled_intern' => $pulled_intern, 'pulled_enroll' => $pulled_enroll]);
+
+        return view("tracker_page", ['userData' => $userData, 'pulled_vals' => $pulled_vals, 'pulled_intern' => $pulled_intern, 'pulled_enroll' => $pulled_enroll, 'pulled_report' => $pulled_report]);
+    }
+    public function add_report()
+    {
+        $userData = $this->userData;
+        //Check if user is logged in;lde'[2cdsx12]
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Verify that the user is an admin:
+
+        
+
+        if(empty($_POST['uin']) AND empty($_SESSION['uin'])){
+            session()->setFlashdata('error', "no user found");
+            return view("Progress_Search", ['userData' => $userData]);
+        }
+        if(empty($_SESSION['uin'])){
+            $uin = $_POST['uin'];
+        }
+        if(empty($_POST['uin'])){
+            $uin = $_SESSION['uin'];
+        }
+        // // Get the user's ID from the session or other source
+        $userId = session()->get('userId'); // Ensure 'userId' is the correct session key that contains the UIN.
+
+        // // Get the database connection
+        $db = \Config\Database::connect();
+
+        $params = [
+            $userId, // The WHERE clause value
+            $report = $this->request->getPost('reported')
+        ];
+
+
+        $sql = "INSERT INTO sitedb.Progress_Report VALUES(?, ?, 2023)";
+        $search = $db->query($sql, [$uin, $report]);
+        $sql = "SELECT * FROM sitedb.Progress_Report WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_report = $search->getResultArray();
+
+
+        return view("tracker_page", ['userData' => $userData,'pulled_report' => $pulled_report]);
     }
     
 

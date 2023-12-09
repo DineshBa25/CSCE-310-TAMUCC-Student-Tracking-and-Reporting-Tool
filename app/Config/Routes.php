@@ -19,7 +19,14 @@ $routes->post('/registration/process', 'Login::register');
 $routes->get('/progress_tracking', 'ProgressSearchController::mainProgressPage');
 $routes->post('/progress_tracking/names', 'ProgressSearchController::searchStudentData');
 $routes->post('/progress_tracking/trackpage', 'ProgressSearchController::searchUIN');
-$routes->get('/progress_tracking/goto', 'ProgressSearchController::searchUIN')
+$routes->get('/progress_tracking/goto', 'ProgressSearchController::searchUIN');
+
+$routes->post('/progress_tracking/add', 'ProgressSearchController::add_report');
+
+$routes->get('/progress_tracking/goto', 'ProgressSearchController::searchUIN');
+$routes->get('/progress_tracking/gostu', 'ProgressSearchController::searchUINstu');
+
+
 $routes->get("/start_application", "ApplicationController::viewStartApplication");
 $routes->get("/create_event", "EventController::viewCreateEvent");
 $routes->post("/event/create", "EventController::submitEvent");

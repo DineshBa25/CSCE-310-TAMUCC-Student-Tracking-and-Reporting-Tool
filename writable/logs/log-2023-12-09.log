@@ -1,0 +1,169 @@
+CRITICAL - 2023-12-09 03:05:12 --> Undefined array key "reported"
+in APPPATH/Controllers/ProgressSearchController.php on line 188.
+ 1 APPPATH/Controllers/ProgressSearchController.php(188): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "reported"', '/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/ProgressSearchController.php', 188)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-09 03:10:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE UIN = ? VALUES(?, ?, 2023)' at line 1 in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO sit...', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO sit...')
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO sit...')
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/ProgressSearchController.php(191): CodeIgniter\Database\BaseConnection->query('INSERT INTO sit...', Array)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#9 {main}
+CRITICAL - 2023-12-09 03:10:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE UIN = ? VALUES(?, ?, 2023)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/ProgressSearchController.php(191): CodeIgniter\Database\BaseConnection->query('INSERT INTO sitedb.Progress_Report WHERE UIN = ? VALUES(?, ?, 2023)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-09 03:11:18 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, 2023)' at line 1 in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO sit...', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO sit...')
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO sit...')
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/ProgressSearchController.php(191): CodeIgniter\Database\BaseConnection->query('INSERT INTO sit...', Array)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#9 {main}
+CRITICAL - 2023-12-09 03:11:18 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, 2023)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/ProgressSearchController.php(191): CodeIgniter\Database\BaseConnection->query('INSERT INTO sitedb.Progress_Report VALUES(?, ?, 2023)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-09 03:11:29 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, 2023)' at line 1 in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('INSERT INTO sit...', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO sit...')
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO sit...')
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/ProgressSearchController.php(191): CodeIgniter\Database\BaseConnection->query('INSERT INTO sit...', Array)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#9 {main}
+CRITICAL - 2023-12-09 03:11:29 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, 2023)' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/ProgressSearchController.php(191): CodeIgniter\Database\BaseConnection->query('INSERT INTO sitedb.Progress_Report VALUES(?, ?, 2023)', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+ERROR - 2023-12-09 03:12:09 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1 in /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php:306
+Stack trace:
+#0 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/MySQLi/Connection.php(306): mysqli->query('SELECT * FROM s...', 0)
+#1 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM s...')
+#2 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Database/BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM s...')
+#3 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/app/Controllers/ProgressSearchController.php(193): CodeIgniter\Database\BaseConnection->query('SELECT * FROM s...', Array)
+#4 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+#5 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+#6 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#8 /Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/system/Commands/Server/rewrite.php(47): require_once('/Users/dylanrol...')
+#9 {main}
+CRITICAL - 2023-12-09 03:12:09 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?' at line 1
+in SYSTEMPATH/Database/BaseConnection.php on line 647.
+ 1 APPPATH/Controllers/ProgressSearchController.php(193): CodeIgniter\Database\BaseConnection->query('SELECT * FROM sitedb.Progress_Report WHERE UIN = ?', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\ProgressSearchController->searchUIN()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgressSearchController))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+CRITICAL - 2023-12-09 03:32:27 --> syntax error, unexpected token "<<", expecting end of file
+in APPPATH/Config/Routes.php on line 22.
+ 1 SYSTEMPATH/CodeIgniter.php(810): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 2 SYSTEMPATH/CodeIgniter.php(450): CodeIgniter\CodeIgniter->tryToRouteIt(null)
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+INFO - 2023-12-09 03:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:07 --> Current URI: /index.php/progress_tracking/add | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:07 --> Current URI: /index.php/progress_tracking/add | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:09 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:09 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:11 --> Current URI: /index.php/reports | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:11 --> Current URI: /index.php/reports | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:13 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:13 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:17 --> Current URI: /index.php/progress_tracking | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:17 --> Current URI: /index.php/progress_tracking | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 03:33:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:24 --> Current URI: /index.php/progress_tracking/goto | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:24 --> Current URI: /index.php/progress_tracking/goto | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:42 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:42 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:46 --> Current URI: /index.php/create_event | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:46 --> Current URI: /index.php/create_event | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:51 --> Current URI: /index.php/view_event | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:51 --> Current URI: /index.php/view_event | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:54 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:54 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:33:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:33:57 --> Current URI: /index.php/view_event | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:33:57 --> Current URI: /index.php/view_event | Expected path: /index.php/reports
+INFO - 2023-12-09 03:34:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:34:02 --> Current URI: /index.php/edit_event/3 | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:34:02 --> Current URI: /index.php/edit_event/3 | Expected path: /index.php/reports
+INFO - 2023-12-09 03:34:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:34:13 --> Current URI: /index.php/progress_tracking | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:34:13 --> Current URI: /index.php/progress_tracking | Expected path: /index.php/reports
+INFO - 2023-12-09 03:34:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 03:34:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:34:58 --> Current URI: /index.php/progress_tracking/goto | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:34:58 --> Current URI: /index.php/progress_tracking/goto | Expected path: /index.php/reports
+INFO - 2023-12-09 03:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 03:43:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 03:43:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-12-09 03:43:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:43:56 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:43:56 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:50:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:50:00 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:50:00 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:50:17 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:50:17 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:50:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:50:23 --> Current URI: /index.php/progress_tracking/gostu | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:50:23 --> Current URI: /index.php/progress_tracking/gostu | Expected path: /index.php/reports
+INFO - 2023-12-09 03:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:50:27 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:50:27 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:52:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:52:11 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:52:11 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:52:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:52:33 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:52:33 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
+INFO - 2023-12-09 03:52:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:52:34 --> Current URI: /index.php/progress_tracking/gostu | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:52:34 --> Current URI: /index.php/progress_tracking/gostu | Expected path: /index.php/reports
+INFO - 2023-12-09 03:52:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-12-09 03:52:38 --> Current URI: /index.php/dashboard | Expected path: /index.php/dashboard
+ERROR - 2023-12-09 03:52:38 --> Current URI: /index.php/dashboard | Expected path: /index.php/reports
