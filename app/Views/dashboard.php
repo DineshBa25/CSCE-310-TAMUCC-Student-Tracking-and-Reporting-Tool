@@ -65,15 +65,10 @@
                         <div>
                             <h2 class="text-lg font-semibold text-white mb-3">Program Progress Tracking</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    Record Student Progress
-                                </button>
-                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                    Edit/View Student Progress
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-700  text-white font-bold py-2 px-4 rounded">
-                                    Delete Progress Report
-                                </button>
+                                <a href="<?= site_url('progress_tracking'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Edit/View Profile
+                        </a>
+                                
                             </div>
                         </div>
                         <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
@@ -140,17 +135,8 @@
                 <div>
                     <h2 class="text-lg font-semibold text-white mb-3">Program Progress Tracking</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Add a Progress Record
-                        </button>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Edit a Progress Record
-                        </button>
-                        <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                            View Progress records
-                        </button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                            Delete a Progress Record
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" action="/progress_tracking" method="get">
+                            Modify Progress Records
                         </button>
                     </div>
                 </div>

@@ -290,7 +290,7 @@ class ProgramController extends BaseController
         // Load the program report view with report data
         return view('program_report', ['userData' => $userData, 'reportData' => $reportData]);
     }
-
+  
     // Example method to get the total enrollment by program
     private function getTotalEnrollmentByProgram($db, $programNum) {
         // Replace with your actual SQL query and parameters
@@ -313,6 +313,7 @@ class ProgramController extends BaseController
             WHERE Track.Program_Num = ? AND College_Student.Classification = 'K-12'";
         $query = $db->query($sql, [$programNum]);
         return $query->getRowArray()['count'];
+
     }
 
     private function getStudentMajorsByProgram($db, $programNum) {
