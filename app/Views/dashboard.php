@@ -82,17 +82,17 @@
                         <div>
                             <h2 class="text-lg font-semibold text-white mb-3">Event Management</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    Create New Event
-                                </button>
-                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                    Edit/View Event Details
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-700  text-white font-bold py-2 px-4 rounded">
-                                    Delete Event
-                                </button>
-                            </div>
+                                 <a href="<?= site_url('/create_event'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Create Event
+                                </a>
+                                <a href="<?= site_url('/view_event'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View/Edit Events
+                                </a>
+                                <a href="<?= site_url('/view_event_tracking'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View/Edit Event Tracking
+                                </a>
                         </div>
+                 </div>
                         <!-- No divider after the last section -->
                     </div>
             <?php elseif ($userData['User_Type'] == 'Student'): ?>
