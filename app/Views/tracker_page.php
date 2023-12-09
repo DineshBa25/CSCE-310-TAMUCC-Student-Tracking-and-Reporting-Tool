@@ -174,8 +174,41 @@
                     </tbody>
                 </table>
             </div>
+            
+            <div class="max-w mx-auto p-6 mb-5 bg-gray-800 rounded-md shadow-md overflow-x-auto">
+                <table class="min-w-full leading-normal">
+                    <thead>
+                    <tr>
+                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                            Year
+                        </th>
+                        <th class="px-5 py-3 border-b-2 border-gray-600 bg-gray-700 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
+                            Report
+                        </th>
 
-
+                    <h1 class="text-gray-300 p-3 text-4xl font-bold">Progress Report</h1>
+                    <?php if(!empty($pulled_report)) foreach ($pulled_report as $name):?>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
+                                <?= ($name["Year"]) ?>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-600 bg-gray-700 text-sm">
+                                <?= ($name["Report"]) ?>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                    </tbody>
+                </table>
+                <div class="max-w mx-auto p-6 mb-5 bg-gray-500 shadow-md overflow-x-auto">
+                <h1 class="text-gray-300 p-2 text-2xl font-bold">Add A New Report:</h1>
+                <form method="post" action="">
+                    <textarea cols="100" rows="10" id = 'reported' style="color: black; padding: 2%;"></textarea>
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex">
+                Post New Report
+            </button>
+                </form>
+                </div>
+            </div>
         </div>
         <div class="flex justify-center mt-4">
             <button type="button" onclick="window.location.href='<?= base_url('/index.php/dashboard') ?>';" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center">
@@ -183,9 +216,6 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
                 Back to Dashboard
-            </button>
-            <button type="button" onclick="window.location.href='<?= base_url('/index.php/add_program') ?>';" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex items-center ml-4">
-                Add A New Report
             </button>
         </div>
     </div>

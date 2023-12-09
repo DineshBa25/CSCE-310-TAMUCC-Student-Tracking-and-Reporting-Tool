@@ -96,3 +96,13 @@ in APPPATH/Controllers/ProgressSearchController.php on line 121.
  4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
+CRITICAL - 2023-12-08 22:33:42 --> Invalid file: "add_program.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('add_program.php')
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render('add_program', [], true)
+ 3 APPPATH/Controllers/ProgramController.php(20): view('add_program', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\ProgramController->viewAddProgram()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProgramController))
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/dylanrollins/Documents/GitHub/CSCE-310-TAMUCC-Student-Tracking-and-Reporting-Tool/public/index.php')
