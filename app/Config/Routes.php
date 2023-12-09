@@ -26,6 +26,7 @@ $routes->get("/add_program", "ProgramController::viewAddProgram");
 $routes->post("/program/add", "ProgramController::addProgram");
 $routes->get("/view_program", "ProgramController::viewProgram");
 $routes->get("/edit_program/(:num)", "ProgramController::viewEditProgram/$1");
+$routes->get("/program_report/(:num)", "ProgramController::viewProgramReport/$1");
 $routes->post("/program/update/(:num)", "ProgramController::updateProgram/$1");
 $routes->post("/program/delete/(:num)", "ProgramController::deleteProgram/$1");
 $routes->post("/program/deactivate/(:num)", "ProgramController::deactivateProgram/$1");

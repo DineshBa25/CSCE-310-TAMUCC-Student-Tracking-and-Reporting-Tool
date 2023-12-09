@@ -43,6 +43,10 @@
             <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
             <input type="text" name="username" id="username" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
+        <div class="mb-4">
+            <label for="current_password" class="block text-gray-700 text-sm font-bold mb-2">Current Password:</label>
+            <input type="password" name="current_password" id="current_password" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
 
         <div class="mb-4">
             <label for="new_password" class="block text-gray-700 text-sm font-bold mb-2">New Password:</label>

@@ -67,7 +67,7 @@ class ReportsController extends BaseController
         return \Config\Database::connect();
     }
 
-    private function generateTotalEnrollmentReport()
+    public function generateTotalEnrollmentReport()
     {
         $db = $this->getDbConnection();
 
@@ -84,7 +84,7 @@ class ReportsController extends BaseController
         return $query->getResultArray();
     }
 
-    private function generateMinorityParticipationReport()
+    public function generateMinorityParticipationReport()
     {
         $db = $this->getDbConnection();
 
@@ -102,7 +102,7 @@ class ReportsController extends BaseController
         return $query->getResultArray();
     }
 
-    private function generateStudentMajorReport()
+    public function generateStudentMajorReport()
     {
         $db = $this->getDbConnection();
 
@@ -313,7 +313,7 @@ class ReportsController extends BaseController
 
         return $result;
     }
-    private function generateK12EnrollmentReport()
+    public function generateK12EnrollmentReport()
     {
         $db = $this->getDbConnection();
 
