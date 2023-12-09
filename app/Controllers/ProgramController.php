@@ -255,8 +255,78 @@ class ProgramController extends BaseController
         return redirect()->to('/view_program');
     }
 
-    public function viewProgramReport(){
+    public function viewProgramReport($programNum)
+    {
+        // Check if user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login');
+        }
 
+        // Get the database connection
+        $db = \Config\Database::connect();
 
+        // Fetch the program's name
+        $programNameQuery = $db->query("SELECT Name FROM Programs WHERE Program_Num = ?", [$programNum]);
+        $programNameRow = $programNameQuery->getRowArray();
+        $programName = $programNameRow['Name'] ?? 'Unknown Program';
+
+        // Assuming you have methods to get the required data
+        $totalStudents = $this->getTotalEnrollmentByProgram($db, $programNum);
+        $minorityStudents = $this->getMinorityParticipationByProgram($db, $programNum);
+        $k12Students = $this->getK12ParticipationByProgram($db, $programNum);
+        $studentMajors = $this->getStudentMajorsByProgram($db, $programNum);
+
+        // Prepare report data array
+        $reportData = [
+            'ProgramName' => $programName,
+            'TotalStudents' => $totalStudents,
+            'MinorityStudents' => $minorityStudents,
+            'K12Students' => $k12Students,
+            'Majors' => $studentMajors,
+        ];
+
+        $userData = $this->userData;
+
+        // Load the program report view with report data
+        return view('program_report', ['userData' => $userData, 'reportData' => $reportData]);
     }
+
+    // Example method to get the total enrollment by program
+    private function getTotalEnrollmentByProgram($db, $programNum) {
+        // Replace with your actual SQL query and parameters
+        $sql = "SELECT COUNT(*) AS count FROM Track WHERE Program_Num = ?";
+        $query = $db->query($sql, [$programNum]);
+        return $query->getRowArray()['count'];
+    }
+
+    private function getMinorityParticipationByProgram($db, $programNum) {
+        $sql = "SELECT COUNT(*) AS count FROM College_Student 
+            JOIN Track ON College_Student.UIN = Track.UIN
+            WHERE Track.Program_Num = ? AND College_Student.Race != 'White'";
+        $query = $db->query($sql, [$programNum]);
+        return $query->getRowArray()['count'];
+    }
+
+    private function getK12ParticipationByProgram($db, $programNum) {
+        $sql = "SELECT COUNT(*) AS count FROM College_Student 
+            JOIN Track ON College_Student.UIN = Track.UIN
+            WHERE Track.Program_Num = ? AND College_Student.Classification = 'K-12'";
+        $query = $db->query($sql, [$programNum]);
+        return $query->getRowArray()['count'];
+    }
+
+    private function getStudentMajorsByProgram($db, $programNum) {
+        $sql = "SELECT College_Student.Major, COUNT(*) AS count FROM College_Student 
+            JOIN Track ON College_Student.UIN = Track.UIN
+            WHERE Track.Program_Num = ?
+            GROUP BY College_Student.Major";
+        $query = $db->query($sql, [$programNum]);
+        $majors = [];
+        foreach ($query->getResultArray() as $row) {
+            $majors[$row['Major']] = $row['count'];
+        }
+        return $majors;
+    }
+
+
 }
