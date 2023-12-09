@@ -73,8 +73,19 @@
                     </div>
                 </form>
             </div>
+            <hr class="border ml-6 mr-6 mb-10 border-gray-600 border-2">
 
-            <hr class="border ml-6 mr-6 mb-5 border-gray-600 border-2">
+            <!--Button that links to password reset page -->
+            <div class="flex justify-center mt-4">
+                <h2 class="text-gray-400 p-5 text-2xl font-bold text-center">Reset Password:  </h2>
+                <button type="button" onclick="window.location.href='<?= base_url('/index.php/reset_password') ?>';" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Reset Password
+                </button>
+            </div>
+
+
+
+            <hr class="border ml-6 mt-10 mr-6 mb-5 border-gray-600 border-2">
 
             <h3 class="text-gray-400 p-5 text-2xl font-bold text-center">View Student Information</h3>
 

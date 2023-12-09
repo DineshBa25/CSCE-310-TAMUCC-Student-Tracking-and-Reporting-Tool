@@ -36,18 +36,12 @@
                         <div>
                             <h2 class="text-lg font-semibold text-white mb-3">User Authentication and Roles</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    Add New Admin
-                                </button>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    Modify User Roles
-                                </button>
-                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                    View User List
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                    Remove User
-                                </button>
+                                <a href="<?= site_url('/add_user'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Add New Administrator
+                                </a>
+                                <a href="<?= site_url('/view_users'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View, edit and delete Students or Administrators
+                                </a>
                             </div>
                         </div>
                         <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
@@ -56,18 +50,13 @@
                         <div>
                             <h2 class="text-lg font-semibold text-white mb-3">Program Information Management</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    Add New Program
-                                </button>
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    Edit Program Details
-                                </button>
-                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                    Generate Program Report
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                    Delete Program
-                                </button>
+                                <a href="<?= site_url('/add_program'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Add a program
+                                </a>
+                                <a href="<?= site_url('/view_program'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View, Edit, or Delete Programs
+                                </a>
+
                             </div>
                         </div>
                         <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
@@ -88,17 +77,17 @@
                         <div>
                             <h2 class="text-lg font-semibold text-white mb-3">Event Management</h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                                    Create New Event
-                                </button>
-                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                                    Edit/View Event Details
-                                </button>
-                                <button class="bg-red-500 hover:bg-red-700  text-white font-bold py-2 px-4 rounded">
-                                    Delete Event
-                                </button>
-                            </div>
+                                 <a href="<?= site_url('/create_event'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                    Create Event
+                                </a>
+                                <a href="<?= site_url('/view_event'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View/Edit Events
+                                </a>
+                                <a href="<?= site_url('/view_event_tracking'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                                    View/Edit Event Tracking
+                                </a>
                         </div>
+                 </div>
                         <!-- No divider after the last section -->
                     </div>
             <?php elseif ($userData['User_Type'] == 'Student'): ?>
@@ -132,18 +121,12 @@
                 <div>
                     <h2 class="text-lg font-semibold text-white mb-3">Application Information Management</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            Submit Application
-                        </button>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Edit an Application
-                        </button>
-                        <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                            View your Application Statuses
-                        </button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                            Withdraw an Application
-                        </button>
+                        <a href="<?= site_url('/start_application'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Start an Application
+                        </a>
+                        <a href="<?= site_url('/view_application'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                            View, Edit and Delete Applications
+                        </a>
                     </div>
                 </div>
                 <hr class="border-t border-gray-600"> <!-- Horizontal Divider -->
@@ -163,15 +146,12 @@
                 <div>
                     <h2 class="text-lg font-semibold text-white mb-3">Document Upload and Management</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="<?= site_url('/add_file'); ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                             Upload a Document
-                        </button>
-                        <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-                            View Documents
-                        </button>
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                            Delete a Document
-                        </button>
+                        </a>
+                        <a href="<?= site_url('/view_file'); ?>" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+                            View, Edit and Delete Documents
+                        </a>
                     </div>
                 </div>
             </div>
