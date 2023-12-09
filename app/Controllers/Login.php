@@ -56,7 +56,7 @@ class Login extends Controller
     {
         // Validation rules for registration form
         $validationRules = [
-            'uin' => 'required|is_unique[Users.UIN]|exact_length[9]|numeric', // UIN must be unique, 9 digits, and numeric
+            'uin' => 'required|is_unique[Users.UIN]|exact_length[9]|numeric',
             'first_name' => 'required',
             'last_name' => 'required',
             'username' => 'required|is_unique[Users.Username]',
@@ -64,6 +64,20 @@ class Login extends Controller
             'user_type' => 'required',
             'email' => 'required|valid_email|is_unique[Users.Email]',
             'discord_name' => 'required',
+            'gender' => 'required|in_list[Male,Female,Other]',
+            'race' => 'required',
+            'us_citizen' => 'required',
+            'first_generation' => 'required',
+            'dob' => 'required',
+            'gpa' => 'required|decimal',
+            'major' => 'required',
+            'minor_1' => 'permit_empty',
+            'minor_2' => 'permit_empty',
+            'expected_graduation' => 'required|integer',
+            'school' => 'required',
+            'classification' => 'required',
+            'phone' => 'required',
+            'student_type' => 'required|in_list[Full-Time,Part-Time]'
         ];
 
         if (!$this->validate($validationRules)) {
@@ -82,6 +96,20 @@ class Login extends Controller
             'Email' => $this->request->getPost('email'),
             'Discord_Name' => $this->request->getPost('discord_name'),
             'IsActive' => 1, // Set IsActive to 1 for active users
+            'Gender' => $this->request->getPost('gender'),
+            'Race' => $this->request->getPost('race'),
+            'US_Citizen' => $this->request->getPost('us_citizen') ? 1 : 0,
+            'First_Generation' => $this->request->getPost('first_generation') ? 1 : 0,
+            'DoB' => $this->request->getPost('dob'),
+            'GPA' => $this->request->getPost('gpa'),
+            'Major' => $this->request->getPost('major'),
+            'Minor_1' => $this->request->getPost('minor_1'),
+            'Minor_2' => $this->request->getPost('minor_2'),
+            'Expected_Graduation' => $this->request->getPost('expected_graduation'),
+            'School' => $this->request->getPost('school'),
+            'Classification' => $this->request->getPost('classification'),
+            'Phone' => $this->request->getPost('phone'),
+            'Student_Type' => $this->request->getPost('student_type'),
         ];
 
         // Manually build the SQL query for insertion
@@ -104,16 +132,43 @@ class Login extends Controller
         $db = \Config\Database::connect();
         $db->query($sql, $params);
 
+
+        // Insert student-specific data into College_Student table if the user is a student
+        if ($data['User_Type'] === 'Student') {
+            $sql = "INSERT INTO College_Student (UIN, Gender, Race, US_Citizen, First_Generation, DoB, GPA, Major, Minor_1, Minor_2, Expected_Graduation, School, Classification, Phone, Student_Type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $params = [
+                $data['UIN'],
+                $data['Gender'],
+                $data['Race'],
+                $data['US_Citizen'],
+                $data['First_Generation'],
+                $data['DoB'],
+                $data['GPA'],
+                $data['Major'],
+                $data['Minor_1'],
+                $data['Minor_2'],
+                $data['Expected_Graduation'],
+                $data['School'],
+                $data['Classification'],
+                $data['Phone'],
+                $data['Student_Type'],
+            ];
+            $db->query($sql, $params);
+        }
+
+
         // Set a flash message for successful registration
         session()->setFlashdata('success', 'Registration successful. You can now login.');
 
         // Redirect to the login page
         return redirect()->to('/login');
     }
+
     public function registerPage()
     {
         return view('register'); // Load the 'register.php' view
     }
+
     public function logout()
     {
         session()->destroy();
@@ -129,13 +184,9 @@ class Login extends Controller
     {
         $session = session();
         $username = $this->request->getVar('username');
+        $currentPassword = $this->request->getVar('current_password');
         $newPassword = $this->request->getVar('new_password');
         $confirmPassword = $this->request->getVar('confirm_password');
-
-        if ($newPassword !== $confirmPassword) {
-            $session->setFlashdata('error', 'Password and Confirm Password do not match.');
-            return redirect()->to('/reset_password')->withInput();
-        }
 
         // Retrieve user data from the UserModel
         $data = $this->userModel->where('username', $username)->first();
@@ -143,6 +194,18 @@ class Login extends Controller
         if (!$data) {
             $session->setFlashdata('error', 'Username does not exist');
             return redirect()->to('/reset_password');
+        }
+
+        // Verify the current password
+        if (!password_verify($currentPassword, $data['Passwords'])) {
+            $session->setFlashdata('error', 'Incorrect current password.');
+            return redirect()->to('/reset_password')->withInput();
+        }
+
+        // Check if new password matches confirm password
+        if ($newPassword !== $confirmPassword) {
+            $session->setFlashdata('error', 'Password and Confirm Password do not match.');
+            return redirect()->to('/reset_password')->withInput();
         }
 
         // Update the user's password
