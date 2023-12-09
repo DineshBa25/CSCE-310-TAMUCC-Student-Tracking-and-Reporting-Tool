@@ -182,4 +182,51 @@ class ProfileController extends BaseController
         return redirect()->to('/login');
     }
 
+    public function changePassword()
+    {
+        // Check if user is logged in
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+        // Validate the form data
+        $input = $this->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min_length[8]',
+            'confirm_new_password' => 'required|matches[new_password]'
+        ]);
+
+        if (!$input) {
+            // If validation fails, redirect back to the form with errors
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        // Get the user's ID and current password
+        $userId = session()->get('UIN');
+        $currentPassword = $this->request->getPost('current_password');
+        $newPassword = $this->request->getPost('new_password');
+
+        $userModel = new \App\Models\UserModel(); // Make sure to use your actual UserModel path
+        $user = $userModel->find($userId);
+
+        // Verify the current password
+        if (!password_verify($current_password, $user['Passwords'])) {
+            session()->setFlashdata('error', 'Current password is incorrect.');
+            return redirect()->back();
+        }
+
+        // Update the user's password
+        $updated = $userModel->update($userId, [
+            'Passwords' => password_hash($newPassword, PASSWORD_DEFAULT)
+        ]);
+
+        if ($updated) {
+            session()->setFlashdata('success', 'Password changed successfully.');
+        } else {
+            session()->setFlashdata('error', 'Failed to change password.');
+        }
+
+        // Redirect back to the profile update form
+        return redirect()->to('/profile/update');
+    }
 }

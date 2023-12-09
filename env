@@ -30,13 +30,13 @@ app.baseURL = 'http://localhost'
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = database1.ck7jfbs7iynn.us-east-2.rds.amazonaws.com
-database.default.database = sitedb
-database.default.username = admin
-database.default.password = B8m3Eu7fhHgkBglQ9DKp
-database.default.DBDriver = MySQLi
+database.default.hostname =
+database.default.database =
+database.default.username =
+database.default.password =
+database.default.DBDriver =
 # database.default.DBPrefix =
-database.default.port = 3306
+database.default.port =
 
 # database.tests.hostname = localhost
 # database.tests.database = ci4_test
@@ -141,3 +141,8 @@ database.default.port = 3306
 #--------------------------------------------------------------------
 
 # curlrequest.shareOptions = true
+
+
+dropBoxClientID=''
+dropBoxClientSecret=''
+dropBoxToken=''

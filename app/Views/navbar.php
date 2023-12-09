@@ -1,4 +1,5 @@
-<!-- File: app/Views/includes/navbar.php -->
+<?php helper('nav_helper'); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,10 +38,12 @@
                 <!-- Navigation Links -->
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                     <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                    <a href="#" class="border-indigo-500 text-white-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a href="/dashboard" class="<?= set_active('/index.php/dashboard', 'border-blue-500 text-white', 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700') ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Dashboard
                     </a>
-                    <!-- Add other navigation links here -->
+                    <a href="/reports" class="<?= set_active('/index.php/reports', 'border-green-500 text-white', 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700') ?> inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Report Generation
+                    </a>
                 </div>
             </div>
             <!-- Profile dropdown -->
