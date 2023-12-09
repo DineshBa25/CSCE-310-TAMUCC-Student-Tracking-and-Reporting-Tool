@@ -104,6 +104,56 @@ class ProgressSearchController extends BaseController
         // GOTO init:
         return view("Progress_Search", ['userData' => $userData]);
     }
+
+    public function searchUINstu()
+    {
+        $userData = $this->userData;
+        //Check if user is logged in;lde'[2cdsx12]
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/login'); // Redirect to login if not logged in
+        }
+
+    
+
+        if(empty($_POST['uin']) AND empty($_SESSION['uin'])){
+            session()->setFlashdata('error', "error");
+            return view("dashboard", ['userData' => $userData]);
+        }
+        if(empty($_SESSION['uin'])){
+            $uin = $_POST['uin'];
+        }
+        if(empty($_POST['uin'])){
+            $uin = $_SESSION['uin'];
+        }
+        // // Get the user's ID from the session or other source
+        $userId = session()->get('userId'); // Ensure 'userId' is the correct session key that contains the UIN.
+
+        // // Get the database connection
+        $db = \Config\Database::connect();
+
+        $params = [
+            $userId // The WHERE clause value
+        ];
+
+        $sql = "SELECT * FROM sitedb.Class_Enrollment WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_vals = $search->getResultArray();
+
+        $sql = "SELECT * FROM sitedb.Intern_App WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_intern = $search->getResultArray();
+
+        $sql = "SELECT * FROM sitedb.Cert_Enrollment WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_enroll = $search->getResultArray();
+
+        $sql = "SELECT * FROM sitedb.Progress_Report WHERE UIN = ?";
+        $search = $db->query($sql, [$uin]);
+        $pulled_report = $search->getResultArray();
+
+
+        return view("tracker_page", ['userData' => $userData, 'pulled_vals' => $pulled_vals, 'pulled_intern' => $pulled_intern, 'pulled_enroll' => $pulled_enroll, 'pulled_report' => $pulled_report]);
+    }
     public function searchUIN()
     {
         $userData = $this->userData;

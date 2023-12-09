@@ -201,7 +201,7 @@
                 </table>
                 <div class="max-w mx-auto p-6 mb-5 bg-gray-500 shadow-md overflow-x-auto">
                 <h1 class="text-gray-300 p-2 text-2xl font-bold">Add A New Report:</h1>
-                <form method="post" action="">
+                <form method="post" action="/progress_tracking/add">
                     <textarea cols="100" rows="10" id = 'reported' style="color: black; padding: 2%;"></textarea>
                     <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex">
                 Post New Report
