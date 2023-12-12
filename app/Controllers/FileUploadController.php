@@ -9,8 +9,22 @@ use Kunnu\Dropbox\Dropbox;
 use Kunnu\Dropbox\DropboxApp;
 use Kunnu\Dropbox\DropboxFile;
 
+/**
+ * class FileUploadController
+ *
+ * This class handles file upload functionality, including validation, upload to Dropbox, and database insertion.
+ * It extends the BaseController class.
+ */
 class FileUploadController extends BaseController
 {
+    /**
+     * Function viewAddFile
+     *
+     * Checks if the user is logged in and loads the add file view with user data.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string Returns a redirect response to the login page if the user is not logged in,
+     *         otherwise returns the add file view.
+     */
     public function viewAddFile()
     {
         // Check if user is logged in
@@ -25,6 +39,17 @@ class FileUploadController extends BaseController
         return view('add_file', ['userData' => $userData]);
     }
 
+    /**
+     * Function addFile
+     *
+     * Checks if the user is logged in and validates the form data for uploading a file.
+     * If the validation fails, log the errors and redirect back to the form with input and validation errors.
+     * If the file is valid and has been uploaded, upload it to Dropbox with a unique name and insert the file information
+     * into the database. Returns a redirect response to the add file page with success or error flash messages.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse Returns a redirect response to the login page if the user is not logged in,
+     *         otherwise returns a redirect response to the add file page.
+     */
     public function addFile()
     {
         // Check if user is logged in
@@ -102,6 +127,12 @@ class FileUploadController extends BaseController
         }
     }
 
+    /**
+     * Retrieves and displays the documents associated with the logged-in user's UIN.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string Returns a RedirectResponse object if the user is not logged in, otherwise returns a string containing the rendered view file with
+     * the user's data and documents.
+     */
     public function viewFile(){
         // Check if user is logged in
         if (!session()->get('isLoggedIn')) {
@@ -125,6 +156,13 @@ class FileUploadController extends BaseController
         return view('view_file', ['userData' => $userData, 'documents' => $documents]);
     }
 
+    /**
+     * Retrieves and displays the selected document for editing, if the user is logged in and a valid application number is provided.
+     *
+     * @param string|null $appNum (optional) The application number of the document to be edited.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string Returns a RedirectResponse object if the user is not logged in or if no application number is provided, otherwise returns a string
+     * containing the rendered view file with the user's data and the selected document for editing.
+     */
     public function viewEditFile($appNum = null)
     {
         // Check if user is logged in
@@ -164,6 +202,12 @@ class FileUploadController extends BaseController
         return view('edit_file', ['userData' => $userData, 'document' => $document]);
     }
 
+    /**
+     * Updates a file in the application.
+     *
+     * @param mixed $appNum The application number (optional).
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirects to the specified page after updating the file.
+     */
     public function updateFile($appNum = null)
     {
         // Check if user is logged in
@@ -254,6 +298,12 @@ class FileUploadController extends BaseController
         }
     }
 
+    /**
+     * Deletes a file from the application.
+     *
+     * @param mixed $appNum The application number (optional).
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirects to the specified page after deleting the file.
+     */
     public function deleteFile($appNum = null)
     {
         // Check if user is logged in

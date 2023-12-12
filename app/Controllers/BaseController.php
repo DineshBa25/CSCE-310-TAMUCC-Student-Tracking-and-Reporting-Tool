@@ -9,6 +9,15 @@ class BaseController extends Controller
 {
     protected $userData; // Declare a property to hold user data
 
+    /**
+     * Initializes the controller by setting the request, response, and logger objects.
+     *
+     * @param \CodeIgniter\HTTP\RequestInterface $request The request object.
+     * @param \CodeIgniter\HTTP\ResponseInterface $response The response object.
+     * @param \Psr\Log\LoggerInterface $logger The logger object.
+     *
+     * @return void
+     */
     public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
         // Do Not Edit This Line

@@ -3,8 +3,20 @@
 
 namespace App\Controllers;
 
+/**
+ * Class ApplicationController
+ *
+ * This class handles the application related functionality such as viewing, submitting, editing and updating applications.
+ *
+ * @package Your\Namespace
+ */
 class ApplicationController extends BaseController
 {
+    /**
+     * Retrieves the start application view with user data and active programs.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string The start application view with user data and active programs, or a redirect to the login page if the user is not logged in.
+     */
     public function viewStartApplication()
     {
         // Check if user is logged in
@@ -40,6 +52,11 @@ class ApplicationController extends BaseController
 
     }
 
+    /**
+     * Submits the application form data to create a new application in the database.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string Redirects to the start application page or displays an error message if the application failed to submit.
+     */
     public function submitApplication()
     {
         // check if user is logged in
@@ -80,6 +97,11 @@ class ApplicationController extends BaseController
         return redirect()->to('/start_application');
     }
 
+    /**
+     * Retrieves the view application view with user data and applications.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string The view application view with user data and applications, or a redirect to the login page if the user is not logged in.
+     */
     public function viewApplication()
     {
         // Check if user is logged in
@@ -117,6 +139,13 @@ class ApplicationController extends BaseController
         return view('view_application', ['userData' => $userData, 'applications' => $applications]);
     }
 
+    /**
+     * Retrieves the edit application view with user data, application data, and available programs.
+     *
+     * @param string|null $appNum The application number to be edited.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string The edit application view with user data, application data, and available programs, or a redirect to the login page if the user is
+     * not logged in or to the application listing page if no application number is provided or if the application is not found.
+     */
     public function viewEditApplication($appNum = null)
     {
         // Check if user is logged in
@@ -164,6 +193,12 @@ class ApplicationController extends BaseController
         return view('edit_application', ['appNum' => $appNum, 'userData' => $userData, 'application' => $application, 'programs' => $programs]);
     }
 
+    /**
+     * Updates the specified application with the provided data.
+     *
+     * @param int|null $appNum The application number to update. If not provided, an error message will be displayed and the user will be redirected to the application listing page.
+     * @return \CodeIgniter\HTTP\RedirectResponse A redirect to the application listing page after the update is completed.
+     */
     public function updateApplication($appNum = null)
     {
 
@@ -208,6 +243,15 @@ class ApplicationController extends BaseController
         return redirect()->to('/view_application');
     }
 
+    /**
+     * Deletes the specified application from the database.
+     *
+     * @param int|null $appNum The application number to be deleted. Null by default.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse Redirects to the application listing page after deleting the application.
+     *
+     * @throws \CodeIgniter\HTTP\RedirectException Throws a redirect exception if the user is not logged in or if no application number is provided.
+     */
     public function deleteApplication($appNum = null)
     {
         // Check if user is logged in

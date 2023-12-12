@@ -5,22 +5,53 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\UserModel; // Import the UserModel
 
+/**
+ * Class Login
+ *
+ * This class represents the Login functionality of the application.
+ */
 class Login extends Controller
 {
     // Declare a private property to hold the UserModel instance
     private $userModel;
 
+    /**
+     * Constructs a new instance of the class.
+     *
+     * Initializes the UserModel instance in the constructor.
+     *
+     * @return void
+     */
     public function __construct()
     {
         // Initialize the UserModel instance in the constructor
         $this->userModel = new UserModel();
     }
 
+    /**
+     * Displays the login view.
+     *
+     * This method is responsible for returning the login view.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('login');
     }
 
+    /**
+     * Authenticates user credentials.
+     *
+     * Retrieves the username and password from the request.
+     * Retrieves user data from the UserModel based on the provided username.
+     * Uses password_verify() to authenticate the provided password against the stored password.
+     * If authentication succeeds, sets the user session data and redirects to the dashboard.
+     * If authentication fails, sets a flash message and redirects to the login page.
+     * If the provided username does not exist, sets a flash message and redirects to the login page.
+     *
+     * @return CodeIgniter\HTTP\RedirectResponse The redirect response to the dashboard or login page.
+     */
     public function authenticate()
     {
         $session = session();
@@ -52,6 +83,13 @@ class Login extends Controller
         }
     }
 
+    /**
+     * Register a new user.
+     *
+     * Validates the registration form inputs and inserts the user data into the database.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse
+     */
     public function register()
     {
         // Validation rules for registration form
@@ -164,22 +202,49 @@ class Login extends Controller
         return redirect()->to('/login');
     }
 
+    /**
+     * Displays the registration page.
+     *
+     * Loads the 'register.php' view, which contains the HTML form for user registration.
+     *
+     * @return \Illuminate\Contracts\View\View The registration page view.
+     */
     public function registerPage()
     {
         return view('register'); // Load the 'register.php' view
     }
 
+    /**
+     * Logs out the user.
+     *
+     * Destroys the session and redirects the user to the login page.
+     *
+     * @return void
+     */
     public function logout()
     {
         session()->destroy();
         return redirect()->to('/login');
     }
 
+    /**
+     * Renders the view for resetting the password.
+     *
+     * This method returns the HTML view template for resetting the password.
+     *
+     * @return string The HTML view template for resetting the password.
+     */
     public function viewResetPassword()
     {
         return view('reset_password');
     }
 
+    /**
+     * Resets the password for a user.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse The redirect response.
+     * @throws \ReflectionException If an error occurs while reflecting the code.
+     */
     public function resetPassword()
     {
         $session = session();

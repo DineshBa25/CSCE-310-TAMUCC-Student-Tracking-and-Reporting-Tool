@@ -2,10 +2,31 @@
 
 namespace App\Controllers;
 
+/**
+ * Displays the "Edit User" view.
+ *
+ * This method checks if the user is logged in. If not, it redirects to the login page.
+ * If the user is logged in and a UIN is provided, it retrieves the user data from the database
+ * based on the provided UIN and loads the "edit_user" view. If the user does not exist in the database,
+ * it redirects to the users listing page with an error message.
+ * If the UIN is not provided, it sets an error flash message and redirects to the users listing page.
+ * Additionally, if the user is a student, it fetches student-specific data and passes it to the view.
+ *
+ * @param string|null $uin The UIN of the user to edit. If not provided, an error flash message is shown and redirect to the user listing page.
+ * @return \CodeIgniter\HTTP\RedirectResponse|string The response of the method can either be a redirect to login, the users listing page, or the "edit_user" view.
+ *
+ * @throws \CodeIgniter\Database\Exceptions\DatabaseException If there is an error while querying the database.
+ */
 class AdminUserController extends BaseController
 {
-
-
+    /**
+     * Displays the "Add User" view.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If the user is logged in, it retrieves the user data from the session and loads the "add_user" view.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string The response of the method can either be a redirect to login or the "add_user" view.
+     */
     public function viewAddUser()
     {
 
@@ -21,6 +42,16 @@ class AdminUserController extends BaseController
         return view('add_user', ['userData' => $userData]);
     }
 
+    /**
+     * Adds a new user to the system.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If the user is logged in and a POST request is made, it validates the form data and
+     * inserts the user into the Users table. If the user being added is a student, it also
+     * inserts the student-specific information into the College_Student table.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|null The response of the method can either be a redirect or null.
+     */
     public function addUser()
     {
         // Check if user is logged in
@@ -96,6 +127,17 @@ class AdminUserController extends BaseController
         }
     }
 
+    /**
+     * Displays the "View Users" view.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If the user is logged in, it retrieves the user data from the session and the list of users from the database.
+     * The retrieved users data is then passed to the "view_users" view for rendering.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string The response of the method can either be a redirect to login or the "view_users" view.
+     *
+     * @throws \CodeIgniter\Database\Exceptions\DatabaseException If there is an error while querying the database.
+     */
     public function viewUsers()
     {
         // Check if user is logged in
@@ -125,6 +167,19 @@ class AdminUserController extends BaseController
         return view('view_users', ['userData' => $userData, 'users' => $users]);
     }
 
+    /**
+     * Displays the "Edit User" view.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If the user is logged in and a UIN is provided, it retrieves the user data from the database
+     * based on the provided UIN and loads the "edit_user" view. If the user does not exist in the database,
+     * it redirects to the users listing page with an error message.
+     * If the UIN is not provided, it sets an error flash message and redirects to the users listing page.
+     * Additionally, if the user is a student, it fetches student-specific data and passes it to the view.
+     *
+     * @param string|null $uin The UIN of the user to edit. If not provided, an error flash message is shown and redirect to the user listing page.
+     * @return \CodeIgniter\HTTP\RedirectResponse|string The response of the method can either be a redirect to login, the users listing page, or the "edit_user" view.
+     */
     public function viewEditUser($uin = null)
     {
         // Check if user is logged in
@@ -171,6 +226,20 @@ class AdminUserController extends BaseController
         ]);
     }
 
+    /**
+     * Updates a user's information.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If no user identification number (UIN) is provided, it sets an error flash message and redirects to the users listing page.
+     * It validates the form data, and if validation fails, it redirects back to the form with errors.
+     * It updates the user's information in the database, including their first name, last name, username, email, Discord username, user type, and active status.
+     * If a new password is provided, it updates the user's password as well.
+     * If the user is a student, it also updates their additional information in the College_Student table, such as gender, ethnicity, major, etc.
+     * After the update, it sets a success or error flash message and redirects to the users listing page.
+     *
+     * @param string|null $uin The unique identification number of the user to update. If null, an error flash message will be set and a redirect will occur.
+     * @return \CodeIgniter\HTTP\RedirectResponse The response of the method is always a redirect to the users listing page.
+     */
     public function updateUser($uin = null)
     {
         // Check if user is logged in
@@ -260,6 +329,20 @@ class AdminUserController extends BaseController
     }
 
 
+    /**
+     * Deletes a user from the system.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If the user is logged in, it checks if a UIN (User Identification Number) has been provided.
+     * If no UIN has been provided, it sets a flash message with an error and redirects to the users listing page.
+     * If a UIN has been provided, it retrieves a database connection, starts a transaction, and deletes the user from the College_Student table and Users table.
+     * After the deletion, it checks if the transaction was successful. If successful, it sets a success flash message and redirects to the users listing page.
+     * If unsuccessful, it sets a flash message with an error and redirects to the users listing page.
+     *
+     * @param string|null $uin The User Identification Number (UIN) of the user to be deleted.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse|string The response of the method can either be a redirect to login or the users listing page.
+     */
     public function deleteUser($uin = null)
     {
         // Check if user is logged in
@@ -298,6 +381,20 @@ class AdminUserController extends BaseController
         }
     }
 
+    /**
+     * Deactivates a user in the system.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If the user is logged in, it checks if a UIN has been provided. If not, it sets an error flash message
+     * and redirects to the users listing page. If a UIN has been provided, it deactivates the user in the database.
+     * If the deactivation is successful, it sets a success flash message. If the deactivation fails, it sets an error
+     * flash message. Finally, the method redirects to the users listing page.
+     *
+     * @param int|null $uin The UIN of the user to be deactivated.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse The response of the method is always a redirect to the users listing page.
+     * The method sets flash messages to notify the user about the success or failure of the deactivation operation.
+     */
     public function deactivateUser($uin = null)
     {
         // Check if user is logged in
@@ -327,6 +424,26 @@ class AdminUserController extends BaseController
         return redirect()->to('/view_users');
     }
 
+    /**
+     * Activates a user in the system.
+     *
+     * This method checks if the user is logged in. If not, it redirects to the login page.
+     * If the user is logged in, it checks if a UIN (User Identification Number) has been provided.
+     * If no UIN is provided, it sets a flash message indicating that no user has been selected for activation
+     * and redirects to the users listing page.
+     *
+     * If a UIN is provided, it connects to the database and updates the IsActive column of the Users table to 1
+     * for the specified UIN, indicating that the user has been activated.
+     *
+     * After updating the database, it sets a flash message indicating whether the user was activated successfully
+     * or if there was a failure.
+     *
+     * Finally, it redirects to the users listing page.
+     *
+     * @param string|null $uin The User Identification Number of the user to be activated (optional).
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse The response of the method is always a redirect to the users listing page.
+     */
     public function activateUser($uin = null)
     {
         // Check if user is logged in

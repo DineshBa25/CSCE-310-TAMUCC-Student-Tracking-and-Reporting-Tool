@@ -6,6 +6,13 @@ use CodeIgniter\Controller;
 
 class TestDB extends Controller
 {
+    /**
+     * Attempts to connect to the database and executes a query to retrieve all rows from the Users table.
+     * Outputs the retrieved rows and displays the database configuration, tables, and connection start time.
+     * Displays a success message if the connection is successful, otherwise displays an error message.
+     *
+     * @return void
+     */
     public function getIndex()
     {
         echo "Attempting to connect to the database...<br>";

@@ -3,8 +3,14 @@
 
 namespace App\Controllers;
 
+/**
+ * Class ProfileController
+*/
 class ProfileController extends BaseController
 {
+    /**
+     * @return \CodeIgniter\HTTP\RedirectResponse|string
+     */
     public function viewUpdateProfile()
     {
         // Check if user is logged in
@@ -39,7 +45,22 @@ class ProfileController extends BaseController
 
 
     /**
-     * @throws \ReflectionException
+     * Updates the user's profile.
+     *
+     * If the user is not logged in, redirects to the login page.
+     *
+     * Validates the form data and redirects back to the profile update
+     * form with errors if validation fails.
+     *
+     * Gets the user's ID from the session or other source and checks that
+     * it is not null to prevent updating all rows.
+     *
+     * Executes an SQL query to update the user's profile in the database.
+     * Sets a success message if rows were updated, or a warning message
+     * if no changes were made. Sets an error message if an exception occurred.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse
+     *    Returns a redirect response back to the profile update form.
      */
     public function updateProfileProcess()
     {
@@ -106,6 +127,11 @@ class ProfileController extends BaseController
         return redirect()->to('/profile/update');
     }
 
+    /**
+     * Deactivates the user's account.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse The redirect response to the login page.
+     */
     public function deactivateAccount()
     {
         // Check if user is logged in and get the user's ID
@@ -142,6 +168,11 @@ class ProfileController extends BaseController
         return redirect()->to('/login');
     }
 
+    /**
+     * Permanently deletes the user's account from the database.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse
+     */
     public function permenantlyDeleteAccount()
     {
         // Check if user is logged in and get the user's ID
@@ -182,6 +213,11 @@ class ProfileController extends BaseController
         return redirect()->to('/login');
     }
 
+    /**
+     * Changes the user's password.
+     *
+     * @return \CodeIgniter\HTTP\RedirectResponse
+     */
     public function changePassword()
     {
         // Check if user is logged in
