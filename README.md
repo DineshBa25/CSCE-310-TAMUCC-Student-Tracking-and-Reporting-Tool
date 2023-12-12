@@ -1,59 +1,30 @@
-# CodeIgniter 4 Framework
+# Cybersecurity Center Student Tracking and Reporting Tool
+> A streamlined data management tool designed for the Texas A&M Cybersecurity Center (TAMCC)
 
-## What is CodeIgniter?
+## Introduction
+The Cybersecurity Center Student Tracking and Reporting Tool is a database management system that helps centralize, organize, and efficiently manage the center's program information and automate the reporting process to meet regulatory requirements. It also provides an interactive portal for students to input their data, track progress, and access program resources.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Features
+* User Authentication and Roles
+* Student Information Management
+* Program Progress Tracking
+* Document Upload and Management
+* Reporting and Analytics
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Technologies
+The project is created with:
+* HTML, CSS for the Front End
+* PHP for the Back End
+* MySQL Database
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Setup
+To run this project, install a local server such as XAMPP or use a web hosting service like 000webhost.
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+## Advantages
+This tool aids in providing valuable insights, streamlining administrative tasks, and developing future cyber leaders for national defense.
 
-## Important Change with index.php
+## Inspirations
+The project is inspired by the official Texas A&M Cybersecurity Center website, available [here](https://cybersecurity.tamu.edu/).
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Contributing
-
-We welcome contributions from the community.
-
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> **Warning**
-> The end of life date for PHP 7.4 was November 28, 2022. If you are
-> still using PHP 7.4, you should upgrade immediately. The end of life date
-> for PHP 8.0 will be November 26, 2023.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## Certification References
+The list of certifications that students can take and report to the programs can be found [here](https://public.cyber.mil/wid/cwmp/dod-approved-8570-baseline-certifications/).
